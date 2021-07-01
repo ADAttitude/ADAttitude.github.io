@@ -3,13 +3,63 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://adattitude.github.io/tags/access/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <loc>https://adattitude.github.io/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/"
+                />
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/tags/art/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <loc>https://adattitude.github.io/blog/pool-delegation/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/blog/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/tags/pool/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/blog/pool-topology/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/tags/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/tags/"
+                />
   </url>
   
   <url>
@@ -28,181 +78,281 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/tags/database/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adattitude.github.io/categories/database/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/tags/design/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/categories/database/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/categories/database/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/categories/design/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/tags/development/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/categories/design/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/categories/design/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/categories/development/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/categories/development/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/categories/development/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/categories/logo/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/categories/logo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/categories/logo/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/project-1/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/project-1/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/project-1/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/project-2/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/project-2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/project-2/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/project-3/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/project-3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/project-3/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/project-4/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/project-4/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/project-4/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/project-5/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/project-5/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/project-5/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/portfolio/project-6/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/tags/sketch/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/portfolio/project-6/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/portfolio/project-6/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/categories/sketch/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://adattitude.github.io/fr/"
+                href="https://adattitude.github.io/fr/categories/sketch/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://adattitude.github.io/"
+                href="https://adattitude.github.io/categories/sketch/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/tags/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://adattitude.github.io/fr/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://adattitude.github.io/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/blog-1/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/blog-2/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/blog-3/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/blog-4/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/blog-5/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/blog/blog-6/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/tags/web/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
   </url>
   
   <url>
     <loc>https://adattitude.github.io/funfacts/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/funfacts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/funfacts/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/banner/</loc>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/call-to-action/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/banner/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/banner/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/contact/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/contact/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/contact/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/call-to-action/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/call-to-action/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/call-to-action/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/service/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/service/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/service/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/about/"
+                />
   </url>
   
   <url>
     <loc>https://adattitude.github.io/testimonial/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/testimonial/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/testimonial/"
+                />
   </url>
   
 </urlset>
