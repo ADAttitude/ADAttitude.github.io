@@ -3,13 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://adattitude.github.io/fr/tags/access/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adattitude.github.io/fr/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -23,8 +18,63 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/fr/tags/art/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
+    <loc>https://adattitude.github.io/fr/blog/pool-delegation/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/blog/pool-delegation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/blog/pool-delegation/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/fr/blog/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/blog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/blog/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/fr/tags/pool/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/tags/pool/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/tags/pool/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/fr/tags/</loc>
+    <lastmod>2021-07-01T16:30:00+02:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://adattitude.github.io/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://adattitude.github.io/fr/tags/"
+                />
   </url>
   
   <url>
@@ -43,11 +93,6 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/fr/tags/database/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adattitude.github.io/fr/categories/database/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
     <xhtml:link
@@ -63,11 +108,6 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/fr/tags/design/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adattitude.github.io/fr/categories/design/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
     <xhtml:link
@@ -80,11 +120,6 @@
                 hreflang="fr"
                 href="https://adattitude.github.io/fr/categories/design/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/tags/development/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
   </url>
   
   <url>
@@ -114,21 +149,6 @@
                 rel="alternate"
                 hreflang="fr"
                 href="https://adattitude.github.io/fr/categories/logo/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://adattitude.github.io/blog/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://adattitude.github.io/fr/blog/"
                 />
   </url>
   
@@ -238,11 +258,6 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/fr/tags/sketch/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://adattitude.github.io/fr/categories/sketch/</loc>
     <lastmod>2020-05-12T12:14:34+06:00</lastmod>
     <xhtml:link
@@ -255,56 +270,6 @@
                 hreflang="fr"
                 href="https://adattitude.github.io/fr/categories/sketch/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/tags/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://adattitude.github.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://adattitude.github.io/fr/tags/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/blog-1/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/blog-2/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/blog-3/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/blog-4/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/blog-5/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/blog/blog-6/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://adattitude.github.io/fr/tags/web/</loc>
-    <lastmod>2020-05-12T12:14:34+06:00</lastmod>
   </url>
   
   <url>
