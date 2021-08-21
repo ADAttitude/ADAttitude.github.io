@@ -1,1 +1,1 @@
-more tests
+{"test": {"addresses": ["b", "c", "a"], "stake_by_day": [69, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 70], "registration_day": "2021-08-10"}}
