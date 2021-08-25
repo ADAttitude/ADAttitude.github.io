@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+        <title>ADAttitude challenge</title>
+        <meta name="description" content="ADAttitude challenge">
+        <meta name="author" content="ADAttitude Team">
+    </head>
+
+    <body>
+	<style>
+	</style>	
+	<div id="container">
+	
+		Enter your stake key or assciated wallet address:<br> <input type="text" id="key" size=100></input>
+		<button type="button" onclick="check_player_key()">
+			Participate to the challenge
+		</button>
+		<button type="button">
+			Play as a visitor
+		</button>
+
+		<br>
+
+		<h3>Leaderboard</h3>
+		<table id="board">
+		<tr><td><b>Stake key</b></td><td><b>Bonus</b></td><td><b>#Victories</b></td><td><b>Score</b></td></tr>
+		</table>
+
+		
+		<div id="About">
+			<h2>About</h2>
+			Starting a new pool from scratch is challenging as such a pool is not very attractive when there is nobody to delegate to it.<br>
+			That is why we propose a challenge to all our early delegators to get traction. Our first minted bloc (340 ADA) will be fully commited to the winners of this challenge.<br>
+<br>
+			180 ADA for the winner<br>
+			100 ADA for the second place<br>
+			60 ADA for the third place<br>
+<br>
+			Although anybody can play to this challenge, you must be one of our delegators to pretend to the price.<br>
+			The winners will be the delegators with the highest scores once our first bloc is minted.<br>
+			The score follows a formula that favors two things:<br>
+			 - how much you delegate to our pool;<br>
+			 - how much victories you manage to collect by playing our game.
+		</div>
+ 
+	
+		<div id="Scoring">
+			<h3>Scoring</h3>
+			- The score increases with the amount of delegated ADA, even if you don't play the game at all (and have 0 victory)<br>
+			- The score increases with your number of victories, even if you delegates a very small amount of ADA.<br>
+			- The longer you stake, the higher your score.<br>
+			Of course, doing all will grant you a far better score.<br>
+
+			Technically, you get a bonus proportional to the time-averaged amount of ADA you stake on our pool. Then your score is given by:<br><br>
+			<b>Score = Bonus . (1+#victories).</b><br><br>
+			The table below shows the achieved score depending on the number of victories for several delegated ammount.
+			
+			<br><br>
+			<table>
+			<tr><td><b>Delegated ₳</b></td><td><b>Bonus</b></td><td><b>Score without playing</b></td><td><b>Score with 1 victory</b></td><td><b>Score with 9 victories</b></td></tr>
+			<tr><td>10</td><td>2</td><td>2</td><td>4</td><td>20</td></tr>
+			<tr><td>100</td><td>4</td><td>4</td><td>8</td><td>40</td></tr>
+			<tr><td>1000</td><td>8</td><td>8</td><td>16</td><td>80</td></tr>
+			<tr><td>10000</td><td>16</td><td>16</td><td>32</td><td>160</td></tr>
+			<tr><td>100000</td><td>32</td><td>32</td><td>64</td><td>320</td></tr>
+			<tr><td>1000000 (don't be shine)</td><td>64</td><td>64</td><td>128</td><td>640</td></tr>
+			</table>
+		</div>
+
+
+		<div id="Goal">
+			<h3>Challenge</h3>
+			The game consists in trying to defeat an AI playing to a board game that follows the same rule as <a href="https://boardgamegeek.com/boardgame/8203/hey-s-my-fish">"Hey, That's My Fish!"</a><br>
+			This AI has been created during Covid time by one of the pool founder and uses the general game playing algorithm AlphaZero.<br>
+			It's not perfect as the neural network could be trained more, but it also means you can definitely win with some perseverance.<br>
+		</div>
+
+		
+		<div id="Rules">
+			<h2>Game rules</h2>
+			Each player plays with a team of 4 penguins. There positions are put randomly on a board made up of hexagonal tiles.<br>
+			Each player's turn consits in selecting one of its penguin, moving it along the board and collect as many points as fishes on the landing tile.<br>
+			The tile a penguin started its move from is removed from the game.<br>
+			The game ends when both teams have no remaining penguin to move left. The player with the most collected points wins.<br>
+			
+			<h3>Move rules</h3>
+			A penguin may move in any one of the six directions of the hexagon, but it cannot change direction during the move.<br>
+			A penguin can only move onto unoccupied tiles: it cannot move onto and through any other penguin, or spaces without tile.<br>
+		</div>
+	</div>	
+	
+	<script>
+
+		
+		fill_leader_board ()
+		
+		
+		function fill_leader_board () {
+			var board = document.getElementById('board')
+			
+			fetch('https://adattitude.github.io/board.json')
+			.then(res => res.json())
+			.then(json_data => {
+			
+				for(var i = 0; i < json_data.length; i++) {
+				
+					item = json_data [i]
+					var row = board.insertRow(-1);
+					
+					var cell = row.insertCell (-1);
+					var nouveauTexte = document.createTextNode(item ['stake_key'])
+					cell.appendChild(nouveauTexte);
+
+					var cell = row.insertCell (-1);
+					var nouveauTexte = document.createTextNode(parseFloat(item ['bonus']).toFixed( 1 ))
+					cell.appendChild(nouveauTexte);
+
+					var cell = row.insertCell (-1);
+					var nouveauTexte = document.createTextNode(item ['num_victories'])
+					cell.appendChild(nouveauTexte);
+
+					var cell = row.insertCell (-1);
+					var nouveauTexte = document.createTextNode(parseFloat(item ['score']).toFixed( 1 ))
+					cell.appendChild(nouveauTexte);
+				}
+			});
+
+		}
+		
+	
+		function check_player_key () {
+			var key = document.getElementById('key').value
+			
+			fetch('https://adattitude.github.io/delegators.json')
+			.then(res => res.json())
+			.then(json_data => {
+
+				var found = null
+				for (var player_key in json_data) {
+					if (player_key == key || check_player_key_within_addresses (key, json_data [player_key])) {
+						found = player_key
+						break
+					}
+				}
+				
+				if (found != null) alert ('Found delegator with stake key ' + found)
+				else alert ('We could not associate this address to one of the ADAttitude stake pool delegators.\nCheck this is a valid stake key or an address associated with your wallet.\nPlease visit https://cardanoscan.io/pool/f9317946c36f6ea5625732382ba4de05ddf4a3fe5952caa838cee051?tab=delegators to check your are liste in our pool.')
+
+			});
+		}
+		
+		function check_player_key_within_addresses (key, player_data) {
+			for (var index in player_data ['addresses']) {
+				if (player_data ['addresses'] [index] == key) return true
+			}
+			return false
+		}
+		
+	</script>
+    </body>
+</html>
+
+
+
