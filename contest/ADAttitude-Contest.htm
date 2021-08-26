@@ -16,34 +16,30 @@
 		<button type="button" onclick="check_player_key()">
 			Participate to the challenge
 		</button>
-		<button type="button">
+		<button type="button" onclick="launch_visitor()">
 			Play as a visitor
 		</button>
-
 		<br>
-
 		<h3>Leaderboard</h3>
 		<table id="board">
 		<tr><td><b>Stake key</b></td><td><b>Bonus</b></td><td><b>#Victories</b></td><td><b>Score</b></td></tr>
 		</table>
-
 		
 		<div id="About">
 			<h2>About</h2>
 			Starting a new pool from scratch is challenging as such a pool is not very attractive when there is nobody to delegate to it.<br>
 			That is why we propose a challenge to all our early delegators to get traction. Our first minted bloc (340 ADA) will be fully commited to the winners of this challenge.<br>
-<br>
+			<br>
 			180 ADA for the winner<br>
 			100 ADA for the second place<br>
 			60 ADA for the third place<br>
-<br>
+			<br>
 			Although anybody can play to this challenge, you must be one of our delegators to pretend to the price.<br>
 			The winners will be the delegators with the highest scores once our first bloc is minted.<br>
 			The score follows a formula that favors two things:<br>
 			 - how much you delegate to our pool;<br>
 			 - how much victories you manage to collect by playing our game.
 		</div>
- 
 	
 		<div id="Scoring">
 			<h3>Scoring</h3>
@@ -68,14 +64,12 @@
 			</table>
 		</div>
 
-
 		<div id="Goal">
 			<h3>Challenge</h3>
 			The game consists in trying to defeat an AI playing to a board game that follows the same rule as <a href="https://boardgamegeek.com/boardgame/8203/hey-s-my-fish">"Hey, That's My Fish!"</a><br>
 			This AI has been created during Covid time by one of the pool founder and uses the general game playing algorithm AlphaZero.<br>
 			It's not perfect as the neural network could be trained more, but it also means you can definitely win with some perseverance.<br>
 		</div>
-
 		
 		<div id="Rules">
 			<h2>Game rules</h2>
@@ -91,10 +85,8 @@
 	</div>	
 	
 	<script>
-
 		
 		fill_leader_board ()
-		
 		
 		function fill_leader_board () {
 			var board = document.getElementById('board')
@@ -128,6 +120,13 @@
 
 		}
 		
+		
+		function launch_visitor () {
+			alert ('Remind that as a visitor, your eventual victories will not be taken into account for the contest')
+
+			var link = `pingouins/pingouins-client.htm?language=fr` 
+			window.location.href = link;
+		}
 	
 		function check_player_key () {
 			var key = document.getElementById('key').value
@@ -144,7 +143,14 @@
 					}
 				}
 				
-				if (found != null) alert ('Found delegator with stake key ' + found)
+				// Start the game with a reference on the stake key for the player id
+				if (found != null) {
+					alert ('Found delegator with stake key ' + found)
+					
+					var link = `pingouins/pingouins-client.htm?language=fr&key=${found}` 
+					window.location.href = link;
+				}
+
 				else alert ('We could not associate this address to one of the ADAttitude stake pool delegators.\nCheck this is a valid stake key or an address associated with your wallet.\nPlease visit https://cardanoscan.io/pool/f9317946c36f6ea5625732382ba4de05ddf4a3fe5952caa838cee051?tab=delegators to check your are liste in our pool.')
 
 			});
