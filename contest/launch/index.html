@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="jsg">
+    <title>ADAttitude Staking Pool | Contest</title>
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet"> 
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet"> 
+    <link href="css/perfect-scrollbar.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico"> 
+</head> 
+
+<body id="home">
+
+    <header id="header">
+        <nav id="main-nav" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://adattitude.github.io"><img src="images/logo.png" alt="logo"></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="scroll active"><a href="#home">Home</a></li>  
+                        <li class="scroll"><a href="#about">About</a></li>
+                        <li class="scroll"><a href="#services">Scoring</a></li> 
+                        <li class="scroll"><a href="#business-stats">Statistics</a></li> 
+						 <li class="scroll"><a href="#portfolio">Rules</a></li>
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <!--
+        <div class="wrap-table100">
+        <div class="table100 ver5 m-b-110">
+        <div class="table100-head">
+        <table>
+            <thead>
+                <tr class="row100 head">
+                <th class="cell100 column1">Class name</th>
+                <th class="cell100 column2">Type</th>
+                <th class="cell100 column3">Hours</th>
+                <th class="cell100 column4">Trainer</th>
+                <th class="cell100 column5">Spots</th>
+                </tr>
+            </thead>
+        </table>
+        </div>
+        <div class="table100-body js-pscroll">
+        <table>
+            <tbody>
+                <tr class="row100 body">
+                <td class="cell100 column1">Like a butterfly</td>
+                <td class="cell100 column2">Boxing</td>
+                <td class="cell100 column3">9:00 AM - 11:00 AM</td>
+                <td class="cell100 column4">Aaron Chapman</td>
+                <td class="cell100 column5">10</td>
+                </tr>
+                <tr class="row100 body">
+                <td class="cell100 column1">Mind & Body</td>
+                <td class="cell100 column2">Yoga</td>
+                <td class="cell100 column3">8:00 AM - 9:00 AM</td>
+                <td class="cell100 column4">Adam Stewart</td>
+                <td class="cell100 column5">15</td>
+                </tr>
+                <tr class="row100 body">
+                <td class="cell100 column1">Mind & Body</td>
+                <td class="cell100 column2">Yoga</td>
+                <td class="cell100 column3">8:00 AM - 9:00 AM</td>
+                <td class="cell100 column4">Adam Stewart</td>
+                <td class="cell100 column5">15</td>
+                </tr>                  
+            </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+-->
+
+
+
+    <section id="hero-banner">
+             <div class="banner-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="test col-sm-8">   
+                                    <h2>ADAttitude Exclusive Contest</h2>
+                                    <p>Win extra rewards by staking our pool and playing our game</p>
+
+                                    <input type="text" class="form-control" 
+                                                  placeholder="Stake or wallet address" id="key"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-2">                                 
+                                <a class="btn btn-primary btn-lg" onclick="launch_visitor()">Play as Visitor</a>                                
+                            </div>
+                            <div class="col-sm-2">                                 
+                                <a class="btn btn-primary btn-lg" onclick="launch_player_key()">Participate</a>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section><!--/#main-slider-->
+   
+    <!-- ------------------------------------------------------------------------------ -->
+    <section id="mainservice" >
+	<div class="container">
+
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Top Leaderboard</h2>                
+            <p class="wow fadeInDown">This top 3 is <b>provisory</b> and may evolve until the end of the contest.</p>
+        </div>
+
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				<img class="img-responsive" src="images/cardano-gold.jpeg" alt="">
+					<div class="caption">
+					<h3>180 ₳</h3>
+					<p id="top1-addr">4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375</p>
+					<p id="top1-details" class="price">Bonus: 11 / #Victories: 11</p>
+					<p><h4 id="top1-score">Score: 52</h4></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				<img class="img-responsive" src="images/cardano.jpeg" alt="">
+					<div class="caption">
+					<h3>100 ₳</h3>
+					<p id="top2-addr">4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375</p>
+					<p id="top2-details" class="price">Bonus: 11 / #Victories: 11</p>
+					<p><h4 id="top2-score">Score: 52</h4></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+				<img class="img-responsive" src="images/cardano-grey.jpeg" alt="">
+					<div class="caption">
+					<h3>60 ₳</h3>
+					<p id="top3-addr">4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375</p>
+					<p id="top3-details" class="price">Bonus: 11 / #Victories: 11</p>
+					<p><h4 id="top3-score">Score: 52</h4></p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="row">
+            <div class="col-sm-10"></div>
+            <div class="col-sm-2">                                 
+                <a class="btn btn-primary btn-lg" onclick="">View full board</a>                                
+            </div>
+        </div>
+
+
+	</div>
+	</section>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <section id="about">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown">About</h2>                
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                  <img class="img-responsive" src="images/challenge.png" alt="">
+                </div>
+
+                <div class="col-sm-6 wow fadeInRight">
+                    <h3 class="column-title">Why this contest</h3>
+                    <p>Starting a new pool from scratch is challenging as such a pool is not very attractive when there is nobody to delegate to it. That is why we propose a challenge to all our early delegators to get traction. Our next minted block (340 ADA) will be fully dedicated to the winners of this challenge.</p>
+					
+					<ul>
+					<li>180 ADA for the winner</li>
+					<li>100 ADA for the second place</li>
+					<li>60 ADA for the third place</li>
+					</ul>
+
+                    <p>Although anybody can play to this challenge, you must be one of our delegators to pretend to the price.
+					The winners will be the 3 delegators with the <b>highest scores</b> once the next block is minted.</p>
+					
+					<p class="wow fadeInDown">The score follows a formula that favors two things:
+					<ul>
+					<li>how much you delegate to our pool;</li>
+					<li>how much victories you manage to collect by playing our game.</li>
+					</ul>
+					</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-10"></div>
+                <div class="col-sm-2">                                 
+                    <a class="btn btn-primary btn-lg" href="#home">Play NOW</a>                                
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ------------------------------------------------------------------------------ -->
+	<section id="services" >
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown white">The Scoring</h2>
+                <p class="wow fadeInDown">The winners will be the 3 delegators with the highest score.</p>
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-send-o"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Winning by delegating</h4>
+                                <p>The score increases with the amount of delegated ADA, even if you don't play the game at all</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="100ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-flag-o"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Winning by playing</h4>
+                                <p>The score increases with your number of victories, even if you delegates a very small amount of ADA.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="200ms">
+                        <div class="media service-box">
+                            <div class="pull-left">
+                                <i class="fa fa-heart-o"></i>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Favoring early delegators</h4>
+                                <p>The longer you stake, the higher your score.</p>
+                            </div>
+                        </div>
+                    </div>
+          
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-7 wow fadeInLeft">
+                    <a class="preview" href="images/PlotCourbe.jpg" rel="prettyPhoto">
+                        <img class="img-responsive" src="images/PlotCourbe.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="col-sm-5 wow fadeInRight">
+                    <p>Of course, doing all three will grant you a far better score.</p>
+                    <p><b>Technically</b>, you get a bonus proportional to the time-averaged amount of ADA you stake on our pool.<br>
+                        This bonus follows a nice logarithmic curve, as shown on the side.
+                    </p>
+							
+                    <p>The settings of this curve are as such when you multiply your stake by 10, your bonus is multiplied by 2.</p>
+                    <p></p>Finally, your score is given by this simple formula: <b>score = bonus x (1 + #victories)</b><br><br><br><br></p>
+                </div>
+            </div>
+   
+        </div><!--/.container-->
+    </section><!--/#services-->
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <section id="business-stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown">Contest statistics</h2>
+                <p class="wow fadeInDown">Contest started at August 21th 2021 and is open until our next block in minted.<br>Those figures are updated every 10 minutes.</p>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div id="competitors" class="business-stats" data-digit="6850" data-duration="1000"></div>
+                        <strong>Number of competitors</strong>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div id="games" class="business-stats" data-digit="1465" data-duration="1000"></div>
+                        <strong>Number of played games</strong>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
+                        <div id="victories" class="business-stats" data-digit="4325" data-duration="1000"></div>
+                        <strong>Number of victories</strong>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
+                        <div id="winning_ratio" class="business-stats" data-digit="2568" data-duration="1000"></div>
+                        <strong>Winning ratio</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#business-stats-->
+    
+     <!-- ------------------------------------------------------------------------------ -->
+     <section id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Game Rules</h2>
+                <p class="wow fadeInDown">The game consists in trying to defeat an AI playing to a board game that follows the same rule as "Hey, That's My Fish!".<br> This AI has been created during Covid time by one of the pool founder and uses the general game playing algorithm AlphaZero.<br>It's not perfect as the neural network could be trained more, but it also means you can definitely win with some perseverance...</p>
+            </div>
+
+            <div class="row">              
+                <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">					
+                    <div class="team-wrapper">
+                    <a class="preview" href="images/rules/rules_1.jpg" rel="prettyPhoto">
+                        <div class="team-inner" style="background-image: url('images/rules/rules_1_small.jpg')"></div>                    
+                    </a>
+                    <div class="description">
+                    <p><strong>1)</strong> Each player plays with a team of 4 penguins. There positions are put randomly on a board made up of hexagonal tiles.</p>
+                    </div>
+                    </div>									
+                    </div>                    
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">					
+                    <div class="team-wrapper">
+                    <a class="preview" href="images/rules/rules_2.jpg" rel="prettyPhoto">
+                        <div class="team-inner" style="background-image: url('images/rules/rules_2_small.jpg')"></div>
+                    </a>
+                    <div class="description">
+                    <p><strong>2)</strong> Each player's turn consists in selecting one of its penguin, moving it along the board and collect as many points as fishes on the landing tile.</p>
+                    </div>
+                    </div>									
+                    </div>                    
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">					
+                    <div class="team-wrapper">
+                    <a class="preview" href="images/rules/rules_3.jpg" rel="prettyPhoto">
+                        <div class="team-inner" style="background-image: url('images/rules/rules_3_small.jpg')"></div>
+                    </a>
+                    <div class="description">
+                    <p><strong>3)</strong> The tile a penguin started its move from is removed from the game.</p>
+                    </div>
+                    </div>									
+                    </div>                    
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">					
+                    <div class="team-wrapper">
+                    <a class="preview" href="images/rules/rules_4.jpg" rel="prettyPhoto">
+                        <div class="team-inner" style="background-image: url('images/rules/rules_4_small.jpg')"></div>
+                    </a>    
+                    <div class="description">
+                    <p><strong>4)</strong> The game ends when both teams have no remaining penguin to move left. The player with the most collected points wins.</p>
+                    </div>
+                    </div>									
+                    </div>                    
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">					
+                    <div class="team-wrapper">
+                    <a class="preview" href="images/rules/rules_5.jpg" rel="prettyPhoto">
+                        <div class="team-inner" style="background-image: url('images/rules/rules_5_small.jpg')"></div>
+                    </a>    
+                    <div class="description">
+                    <p><strong>5)</strong> A penguin may move in any one of the six directions of the hexagon, but it cannot change direction during the move.</p>
+                    </div>
+                    </div>									
+                    </div>                    
+                </div>
+                <div class="col-md-4 col-sm-6 col-xs-12">
+					<div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="0ms">					
+                    <div class="team-wrapper">
+                    <a class="preview" href="images/rules/rules_6.jpg" rel="prettyPhoto">
+                        <div class="team-inner" style="background-image: url('images/rules/rules_6_small.jpg')"></div>
+                    </a>    
+                    <div class="description">
+                    <p><strong>6)</strong> A penguin can only move onto unoccupied tiles: it cannot move onto and through any other penguin, or spaces without tile.</p>
+                    </div>
+                    </div>									
+                    </div>                    
+                </div>
+            
+            </div>            
+        </div><!--/.container-->
+    </section><!--/#portfolio-->  
+    
+    <!-- ------------------------------------------------------------------------------ -->
+    <div id="modal_box" class="modal">
+        <div class="modal-content">
+          <p id="modal_text">Some text in the Modal..</p>
+          <!--<span class="close">&times;</span>-->
+          <div class="modal-close" onclick="close_modal_box (false)">x</div>
+          <a id="modal_accept" class="btn btn-primary btn-lg" onclick="close_modal_box (true)">I understand</a>                  
+        </div>      
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <div id="modal_soon" class="modal">
+        <p class="modal-message">Coming Soon</p>
+    </div>
+
+    <!-- ------------------------------------------------------------------------------ -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    Copyright © 2021 ADAttitude Stake Pool Team - Based on an original theme by WebThemez.com
+                </div>
+                <div class="col-sm-6">
+                    <ul class="social-icons">
+                        <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
+                        <li><a href="https://twitter.com/TICKER_HELLO"><i class="fa fa-twitter"></i></a></li>
+                        <!--<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fa fa-github"></i></a></li>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/custom-scripts.js"></script>
+    <script src="js/perfect-scrollbar.min.js"></script>
+    
+    <script>
+
+        var soon = document.getElementById("modal_soon")
+        soon.style.display = "block";
+
+        $('.js-pscroll').each(function(){
+            var ps = new PerfectScrollbar(this);
+
+            $(window).on('resize', function(){
+                ps.update();
+            })
+        });
+
+        fill_leader_board ()
+        fill_stats ()
+        var board_data=null
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("modal_box")) {
+                close_modal_box (false)
+            } 
+        }
+
+        var key_map = {}
+        window.onkeydown = window.onkeyup = function (event) {
+            key_map [event.key] = (event.type == "keydown")
+
+            if (key_map ['j'] == true && key_map ['s'] == true && key_map ['g'] == true) {
+                soon.style.display = "none";
+            }
+        }
+
+        function show_modal_box (message, func=null, button_text=null) {
+
+            var modal = document.getElementById("modal_box");
+            var modal_text = document.getElementById("modal_text");
+            var modal_accept = document.getElementById("modal_accept");
+
+            modal.style.display = "block";
+            modal_text.innerHTML = message;
+            if (button_text != null) modal_accept.innerText = button_text;
+
+            if (func != null) {
+                modal_accept.style.display = 'block'
+                modal_accept.onclick = func;
+            }
+            else {
+                modal_accept.style.display = 'none'
+                modal_accept.onclick = 'close_modal_box (false)'
+            }
+        }
+
+        function close_modal_box (status){
+            var modal = document.getElementById("modal_box");
+            modal.style.display = "none";
+        }
+
+		function fill_leader_board () {
+			
+			fetch('https://adattitude.github.io/board.json')
+			.then(res => res.json())
+			.then(json_data => {
+			
+                board_data = json_data
+                var tops = [json_data [0], json_data [1], json_data [2]]
+
+                for (var i = 0; i < 3; i ++)
+                {
+                    var div = document.getElementById('top' + (i+1).toString () + '-addr');
+                    div.innerHTML= convert_address (tops [i] ['stake_key'])
+
+                    var div = document.getElementById('top' + (i+1).toString () + '-details');
+                    div.innerText='Bonus: ' + tops [i] ['bonus'].toFixed (1) + ' / #Victories: ' + tops [i] ['num_victories'].toString ()
+
+                    var div = document.getElementById('top' + (i+1).toString () + '-score');
+                    div.innerText='Score:' + tops [i] ['score'].toFixed (1)
+                }
+
+			});
+
+		}
+
+        function convert_address (address) {
+            var l = address.length
+            var ref = 'https://cardanoscan.io/stakekey/' + address
+            converted='<a target="_blank" href="' + ref + '">Stake address: ' + address.substring  (0,8)  + '...' + address.substring (l-9, l) + '</a>'
+            return converted
+        }
+
+        function fill_stats () {
+            var div = document.getElementById('competitors');
+
+            fetch('https://adattitude.github.io/board.json')
+                .then(res => res.json())
+                .then(json_data => {
+                
+                    div.setAttribute ('data-digit', json_data.length)                
+                });
+
+
+            var total_games = 0
+            var total_victories = 0
+
+            fetch('https://adattitude.github.io/players.json')
+                .then(res => res.json())
+                .then(json_data => {
+                
+                    for (var key in json_data) {
+                        value = json_data [key]
+                        total_games += value ['num_victories'] + value ['num_draws'] + value ['num_defeats']  +value ['num_abandons']
+                        total_victories += value ['num_victories']
+                    }                
+
+                    var div = document.getElementById('games');
+                    div.setAttribute ('data-digit', total_games)          
+
+                    var div = document.getElementById('victories');
+                    div.setAttribute ('data-digit', total_victories)                
+
+                    var div = document.getElementById('winning_ratio');
+                    div.setAttribute ('data-digit', (100*total_victories/total_games).toFixed (1) + "%")
+                });
+        }
+
+
+		function launch_visitor () {
+			
+            message = '<div class="row"><div class="col-sm-8">'
+            message += '<h2>You are about to confront our Carda<sup>TM</sup> AI</h2>'
+            message += "Remind that, as a visitor, your eventual victories will not be taken into account for the contest"
+            message += '</div>'
+            message += '<div class="col-sm-4"><img class="img-responsive" src="images/CardATM.png" alt=""></img></div>'
+            message += '</div>'
+
+            var on_accept = function () {
+			    var link = `../game/pingouins/pingouins-client.htm?language=fr` 
+			    window.location.href = link;
+            }
+
+            status = show_modal_box (message, on_accept, "I understand")
+		}
+	
+		function launch_player_key () {
+			var key = document.getElementById('key').value
+			
+			fetch('https://adattitude.github.io/delegators.json')
+			.then(res => res.json())
+			.then(json_data => {
+
+				var found_stake_key = null
+				for (var stake_key in json_data) {
+					if (stake_key == key || check_player_key_within_addresses (key, json_data [stake_key])) {
+						found_stake_key = stake_key
+						break
+					}
+				}
+				
+				// Start the game with a reference on the stake key for the player id
+				if (found_stake_key != null) {
+
+                    var index = -1
+                    for (index = 0; index < board_data.length; index ++) {
+				        if (board_data [index] ['stake_key'] == found_stake_key) break
+			        }
+
+                    var avg_stake = (board_data [index]["avg_stake"] / 1000000).toFixed (2)
+                    var bonus = board_data [index]["bonus"].toFixed (1)
+                    var score = board_data [index]["score"].toFixed (1)
+
+
+                    var ref = 'https://cardanoscan.io/stakekey/' + found_stake_key
+                    var key_link = '<a target="_blank" href="' + ref + '">' + found_stake_key + '</a>'
+
+
+                    /*
+
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title wow fadeInDown">About</h2>                
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                  <img class="img-responsive" src="images/challenge.png" alt="">
+                </div>
+
+                <div class="col-sm-6 wow fadeInRight">
+                    <h3 class="column-title">Why this contest</h3>
+                    <p>Starting a new pool from scratch is challenging as such a pool is not very attractive when there is nobody to delegate to it. That is why we propose a challenge to all our early delegators to get traction. Our next minted block (340 ADA) will be fully dedicated to the winners of this challenge.</p>
+					
+					<ul>
+					<li>180 ADA for the winner</li>
+					<li>100 ADA for the second place</li>
+					<li>60 ADA for the third place</li>
+					</ul>
+
+                    <p>Although anybody can play to this challenge, you must be one of our delegators to pretend to the price.
+					The winners will be the 3 delegators with the <b>highest scores</b> once the next block is minted.</p>
+					
+					<p class="wow fadeInDown">The score follows a formula that favors two things:
+					<ul>
+					<li>how much you delegate to our pool;</li>
+					<li>how much victories you manage to collect by playing our game.</li>
+					</ul>
+					</p>
+
+                </div>
+            </div>
+                    */
+
+                    message = '<div class="row"><div class="col-sm-8">'
+                    message += '<h2>You are about to confront our Carda<sup>TM</sup> AI</h2>'
+                    message += "Your are currently identified with the following staking key:<br><b>" + key_link + "</b><br>"
+                    message += "Your personal statistics are:<ul>"
+                    message += `<li>Average stake since beginning of the contest: ${avg_stake} ₳</li>`
+                    message += `<li>Your base bonus based on this stake: ${bonus}</li>`
+                    message += `<li>Your number of victories: ${board_data [index]["num_victories"]}</li>`
+                    message += `<li>Your current score: <b>${score}</b></li>`
+                    message += "</ul>"
+                    message += "Please note that only your victories are taken into account to compute your score.<br>"
+                    message += "As a result, there is no point in playing for another delegator."
+                    message += '</div>'
+                    message += '<div class="col-sm-4"><img class="img-responsive" src="images/CardATM.png" alt=""></img></div>'
+                    message += '</div>'
+
+                    var on_accept = function () {					
+					    var link = `../game/pingouins/pingouins-client.htm?language=fr&key=${found_stake_key}` 
+					    window.location.href = link;
+                    }
+
+                    show_modal_box (message, on_accept, "Let's play NOW!")
+				}
+
+                // Warn user if stake key not found
+				else {
+                    message = "We could not find any delegator associated with this key:<br><b>" + key + "</b><br>"
+                    message += "You should check that:<ul>"
+                    message += "<li>You have provided a valid stake key or any address associated with your wallet</li>"
+                    message += "<li>You are actually delegating to our pool <b>ADAttitude</b></li>"
+                    message += "<li>If you just activated the delegation link, you have given us enough time to record your address (1 hour maximum)</li>"
+                    message += "</ul>"
+                    message += 'Please visit <a href="https://pooltool.io/pool/f9317946c36f6ea5625732382ba4de05ddf4a3fe5952caa838cee051/delegators">PoolTool.io</a> to check that you appear in our delegation list,'
+                    message += "<br>and feel free to contact us in any other case."
+
+                    show_modal_box (message, null)
+                }
+
+			});
+		}
+		
+		function check_player_key_within_addresses (key, player_data) {
+
+            if (player_data ['bech32'] == key) return true
+
+			for (var index in player_data ['addresses']) {
+				if (player_data ['addresses'] [index] == key) return true
+			}
+			return false
+		}
+        
+    </script>
+</body>
+</html>

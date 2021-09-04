@@ -6,7 +6,9 @@ class WebSocketClient {
 	* @param {string}	uri 	The server address to connect to
 	*/	
 	constructor (uri) {
+
 		this.ws = new WebSocket(uri)
+
 		this.ws.onopen = this.ws_onopen
 		this.ws.onmessage = this.ws_onmessage
 		this.ws.onclose = this.ws_onclose
@@ -16,6 +18,7 @@ class WebSocketClient {
 		
 		this.in_queue = new Array ()
 		this.out_queue = new Array ()
+		this.close_reason = ""
 	}	
 	
 	/** ===========================================================================================
@@ -72,7 +75,9 @@ class WebSocketClient {
 		// and dispatch
 		if (json_message.cat == 'signal') {
 			console.log (`[WS] received signal: ${json_message.type}`)
-			this.out_queue.push ([json_message.type, json_message.data, null])
+
+			if (json_message.type == "Goodbye") this.close_reason = json_message.data
+			else this.out_queue.push ([json_message.type, json_message.data, null])
 		}
 		else if (json_message.cat == 'request') {
 			console.log (`[WS] received request: ${json_message.type}`)
@@ -95,6 +100,7 @@ class WebSocketClient {
 	ws_onclose = event => {
 		if (event.wasClean) {
 			console.log (`[WS] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+			if (this.close_reason == "") this.close_reason = '|' + event.reason + '|'
 		} else {
 			// e.g. server process killed or network down
 			// event.code is usually 1006 in this case
@@ -109,6 +115,7 @@ class WebSocketClient {
 	*/
 	ws_onerror = error => {
 		console.log (`[WS] Websocket error: ${error.message}`);
+		if (this.close_reason == "") this.close_reason = '|' + error.message + '|'
 	}	
 	
 	/** ===========================================================================================
@@ -154,7 +161,12 @@ class WebSocketClient {
 			if (response == null) return null
 			else {
 				console.log (`[WS Client] Got: ${response.data}`)
-				return response.data
+
+				if (response.type == "Error") {
+					this.close_reason = response.data
+					return null
+				}
+				else return response.data
 			}
 		}
 		else return null

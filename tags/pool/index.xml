@@ -17,5 +17,14 @@
       <description>Prerequisites  ADA stake Yoroi wallet or Deadalus wallet  Delegate your ADA is safe and make the Cardano network more secure.</description>
     </item>
     
+    <item>
+      <title>Pool Topology</title>
+      <link>https://adattitude.github.io/blog/pool-topology/</link>
+      <pubDate>Thu, 01 Jul 2021 16:30:00 +0200</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/pool-topology/</guid>
+      <description>Blabla</description>
+    </item>
+    
   </channel>
 </rss>

@@ -17,5 +17,68 @@
       <description>Prerequisites  ADA stake Yoroi wallet or Deadalus wallet  Delegate your ADA is safe and make the Cardano network more secure.</description>
     </item>
     
+    <item>
+      <title>Pool Topology</title>
+      <link>https://adattitude.github.io/blog/pool-topology/</link>
+      <pubDate>Thu, 01 Jul 2021 16:30:00 +0200</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/pool-topology/</guid>
+      <description>Blabla</description>
+    </item>
+    
+    <item>
+      <title>This Is A Simple Blog Post</title>
+      <link>https://adattitude.github.io/blog/blog-1/</link>
+      <pubDate>Tue, 12 May 2020 12:14:34 +0600</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/blog-1/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>This Is A Simple Blog Post</title>
+      <link>https://adattitude.github.io/blog/blog-2/</link>
+      <pubDate>Tue, 12 May 2020 12:14:34 +0600</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/blog-2/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>This Is A Simple Blog Post</title>
+      <link>https://adattitude.github.io/blog/blog-3/</link>
+      <pubDate>Tue, 12 May 2020 12:14:34 +0600</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/blog-3/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>This Is A Simple Blog Post</title>
+      <link>https://adattitude.github.io/blog/blog-4/</link>
+      <pubDate>Tue, 12 May 2020 12:14:34 +0600</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/blog-4/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>This Is A Simple Blog Post</title>
+      <link>https://adattitude.github.io/blog/blog-5/</link>
+      <pubDate>Tue, 12 May 2020 12:14:34 +0600</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/blog-5/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
+    <item>
+      <title>This Is A Simple Blog Post</title>
+      <link>https://adattitude.github.io/blog/blog-6/</link>
+      <pubDate>Tue, 12 May 2020 12:14:34 +0600</pubDate>
+      
+      <guid>https://adattitude.github.io/blog/blog-6/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</description>
+    </item>
+    
   </channel>
 </rss>

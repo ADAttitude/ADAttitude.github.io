@@ -30,7 +30,9 @@ class Game {
 		this.status = "connecting"
 		this.mouse = new Object ()
 		this.mouse.x = 0
-		this.mouse.y = 0				
+		this.mouse.y = 0	
+		
+		this.cardatm = new Cardatm (context)
 
 		canvas.addEventListener('mousemove', (e) => {this._process_move_event (e)})		
 		canvas.addEventListener('mousedown', (e) => {this._process_move_event (e)})		
@@ -102,8 +104,12 @@ class Game {
 		var agent_2 = await this._create_agent (game_name, agent_2)
 		var contest = await this._buddy_client.create_contest (game_name, [agent_1, agent_2], seed, player_id)
 
-		this.status = "playing"
-		
+		if (agent_1 == null || agent_2 == null || contest == null) {
+			this.status = "error_noserver"
+			return
+		}
+
+		this.status = "playing"		
 		var again = 1
 		while (again > 0) {
 			
@@ -158,8 +164,16 @@ class Game {
 			var message = ""
 			if (this.status == "connecting") message = "Connecting to BuddyServer ..."
 			else if (this.status == "initiating") message = "Game creation ..."
-			else if (this.status == "error_noserver") message = "Could not connect to BuddyServer"
-			else if (this.status == "error_serverlost") message = "Connection with BuddyServer lost"
+			else if (this.status == "error_noserver") {
+				message = "Could not connect to BuddyServer"
+				if (this._buddy_client.close_reason != null && this._buddy_client.close_reason != "")
+					message += " (" + this._buddy_client.close_reason + ")"
+			}
+			else if (this.status == "error_serverlost") {
+				message = "Connection with BuddyServer lost"
+				if (this._buddy_client.close_reason != null && this._buddy_client.close_reason != "")
+					message += " (" + this._buddy_client.close_reason + ")"
+			}
 			
 			if (this.status.startsWith ("error")) this._splash_screen (message, "red")
 			else this._splash_screen (message)
@@ -169,7 +183,11 @@ class Game {
 		else {				
 			if (this.is_busy () == false) this._forward_events ()
 			this.update (elapsed)
-			this.draw();
+			this.cardatm.update (elapsed)
+
+			this.draw ()
+			this.cardatm.draw ();
+			
 			this._draw_full_screen_icon ()
 		}
 
@@ -280,6 +298,9 @@ class Game {
 		}
 				
 		var font_height = Math.round (canvas.height/20)
+		var max = 2.0 * w / message.length
+		font_height = Math.min (max, font_height)
+
 		canvas.style.font = this.context.font;
 		canvas.style.fontSize = `${font_height}px`;
 		this.context.font = canvas.style.font;
@@ -331,6 +352,9 @@ class Game {
 				// Decode game state from Base64 and decode action string
 				var game_state = atob (data.game_state)
 				var player_actions = this._parse_player_actions (data.player_actions)
+
+				// Hide CardATM
+				this.cardatm.set_progress (0.0)
 				
 				this._turn_end (data.contest, game_state, player_actions)
 			}
@@ -350,6 +374,13 @@ class Game {
 				var players = this._parse_players (data.player)
 
 				this._get_agent_action (data.contest, data.agent, id, players [0])
+			}
+
+			else if (type == "ThinkProgress") {
+
+				this.cardatm.set_progress (data.progress)
+				//console.log (data)
+				//Object { contest: 21, player: "0:Blue", progress: 0.788 }
 			}
 		}
 	}
