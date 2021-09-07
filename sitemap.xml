@@ -163,7 +163,7 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/funfacts/</loc>
+    <loc>https://adattitude.github.io/_funfacts/</loc>
   </url>
   
   <url>
@@ -175,11 +175,19 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/call-to-action/</loc>
+    <loc>https://adattitude.github.io/_call-to-action/</loc>
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/service/</loc>
+    <loc>https://adattitude.github.io/charity/</loc>
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/follow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/_service/</loc>
   </url>
   
   <url>
@@ -191,7 +199,11 @@
   </url>
   
   <url>
-    <loc>https://adattitude.github.io/testimonial/</loc>
+    <loc>https://adattitude.github.io/reliability/</loc>
+  </url>
+  
+  <url>
+    <loc>https://adattitude.github.io/_testimonial/</loc>
   </url>
   
 </urlset>
