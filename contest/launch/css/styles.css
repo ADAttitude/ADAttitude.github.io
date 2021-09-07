@@ -84,6 +84,7 @@ display:none;
     color: #252525 !important;
     line-height: 30px;
     margin-bottom: 28px;
+    width: 100%;
 }
 .btn {
   border-width: 0;
@@ -207,7 +208,7 @@ background: transparent;
 color: #FFFFFF;
 }
  
-#main-nav.navbar-default {background: #c1175a;}
+#main-nav.navbar-default {background: #625a80;}
 @media only screen and (min-width: 768px) {
   #main-nav.navbar-default {
     background: #625a80;
@@ -267,6 +268,7 @@ color: #FFFFFF;
   overflow: hidden;
   height: 600px;
   color: #4C4C4C;
+  background-position: center center;
 }
 #hero-banner.item {
   height: 558px;
@@ -285,8 +287,10 @@ color: #FFFFFF;
 #hero-banner{
   background: #FFFFFF url('../images/banner/bg2.jpg') no-repeat 100% bottom;
   margin-top: -4px;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
-  }
+}
 #hero-banner h2 {
   margin-top: 34%;
   font-size: 50px;
@@ -314,9 +318,7 @@ color: #FFFFFF;
   color: #085C98;
   background: #fff;
 }
-.test {
-  background: #fffC;
-}
+
 #cta2 {
   background: #45b1da;
   color: #fff;
@@ -366,6 +368,9 @@ color: #FFFFFF;
 #mainservice {
   padding: 120px 0 80px; 
   border-top: 1px dashed #ffffff;
+}
+#play{
+  background-color: #000;
 }
 .media.service-box {
   padding: 20px 15px 10px;
