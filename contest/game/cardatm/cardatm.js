@@ -42,7 +42,7 @@ class Cardatm {
 		this._vib_x_mag = []
 		this._offset_x = 0.0
 		this._action = ACTIONS.NONE
-		this._t = 0.0
+		this._t = 0.0				
 	}
 
 	/** ===========================================================================================
@@ -92,17 +92,18 @@ class Cardatm {
 	*/
 	draw () {
         
-		var scale = this._width / this._image._width
-		scale = 1.0
+		this._size_elements ()
+
+		var scale = this._width / this._image.width
         var w = this._image.width * scale
 		var h = this._image.height * scale
 
-		var [x, y] = this._get_onscreen_position ()
+		var [x, y] = this._get_onscreen_position (scale)
 
 		this._context.drawImage (this._image, 0, 0, this._image.width, this._image.height, x-w/2, y-h/2, w, h);
 
-        this._progress.set_center_pos (x-w/2+this._lamp_x, y-h/2+this._lamp_y)
-        this._progress.draw ()
+        this._progress.set_center_pos (x-w/2+this._lamp_x*scale, y-h/2+this._lamp_y*scale)
+        this._progress.draw (scale)
     }
 
 	/** ===========================================================================================
@@ -148,7 +149,7 @@ class Cardatm {
 	_start_vibration () {
 
 		for (let i = 0; i < 3; i ++) {
-			this._vib_x_freq.push (this._random_range (3.0, 8.0))
+			this._vib_x_freq.push (this._random_range (1.0, 4.0))
 			this._vib_x_mag.push (this._random_range (1e-4, 3e-3))
 		}
 
@@ -160,16 +161,45 @@ class Cardatm {
 		return Math.random() * (max - min) + min;
 	}
 
-	_get_onscreen_position () {
+	_get_onscreen_position (scale) {
 
 		var w = this._context.canvas.width
         var h = this._context.canvas.height
-		var ih = this._image.height
-		var iw = this._image.width
+		var ih = this._image.height * scale
+		var iw = this._image.width * scale
 
-		var x = this._image.width * 0.5 + this._offset_x * iw
+		var x = scale * this._image.width * 0.5 + this._offset_x * iw
 		var y = h - ih/2 - this._pos_height * ih
 
 		return [x, y]
+	}
+
+	/** ===========================================================================================
+	* Size the drawing elements based on the screen size
+	*/
+	_size_elements () {
+
+		var w = this._context.canvas.width
+        var h = this._context.canvas.height
+
+		// Retrieve Pingeuins board size and corresponding margin
+        var scale_w = w * 0.8
+        var scale_h = h * 0.9
+        var scale = Math.min (scale_w, scale_h)
+		var mw = (w - scale) / 2
+		var mh = (h - scale*0.9) / 2
+
+		var marge = Math.max (mw, mh)
+		this._width = marge
+		var minimum = scale_w * 0.4
+		
+		if (w > h) {
+			this._width =  Math.max (marge, minimum)
+		}
+		else {
+			this._width =  Math.max (marge*1.2, minimum)
+		}
+
+		if (this._width > w) this._width = w
 	}
 }

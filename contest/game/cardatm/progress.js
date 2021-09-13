@@ -39,14 +39,14 @@ class Progress {
 	/** ===========================================================================================
 	* Called to draw the object
 	*/
-	draw () {
+	draw (scale) {
 
-		var cxt_left = this._x - this._tw/2
-		var cxt_right = this._x + this._tw/2
-		var cxb_left = this._x - this._bw/2
-		var cxb_right = this._x + this._bw/2
-		var cy_top = this._y - this._h/2
-		var cy_bot = this._y + this._h/2
+		var cxt_left = this._x - scale * this._tw/2
+		var cxt_right = this._x + scale * this._tw/2
+		var cxb_left = this._x - scale * this._bw/2
+		var cxb_right = this._x + scale * this._bw/2
+		var cy_top = this._y - scale * this._h/2
+		var cy_bot = this._y + scale * this._h/2
 
 		var px_top = cxt_left + (cxt_right - cxt_left) * this._progress
 		var px_bot = cxb_left + (cxb_right - cxb_left) * this._progress
@@ -68,7 +68,7 @@ class Progress {
         this._context.lineTo (cxb_left, cy_bot);
         this._context.closePath();
 
-		this._context.strokeStyle = 'white'
+		this._context.strokeStyle = 'black'
         this._context.lineWidth = 2.0;
         this._context.stroke();
     }

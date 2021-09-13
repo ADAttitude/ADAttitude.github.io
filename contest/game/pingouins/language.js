@@ -1,9 +1,9 @@
 
 var languages = {
     "en": {
-        blue_wins: "Blue penguins win !",
-        green_wins: "Green penguins win !",
-        drawn: "Drawn game"
+        blue_wins: "CARDA-TM wins !",
+        green_wins: "Congrat, you win !",
+        drawn: "You were so close ..."
     },
 
     "fr": {

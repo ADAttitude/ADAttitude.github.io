@@ -221,7 +221,7 @@ class PingouinsBoard {
         }
         
         if (start_highlight) selection_color = "rgba(200,0,0,0.4)"
-        if (shadow) selection_color = "rgba(0,0,0,0.4)"
+        if (shadow) selection_color = "rgba(0,0,0,0.5)"
         this._draw_tile (x, y, num_fishes, selection_color)
     }
 

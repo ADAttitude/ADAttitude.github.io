@@ -16,11 +16,11 @@ class Penguin {
 
 		if (player_number == 0) {
 			Penguin.blue_counter += 1
-			this._image.src = `./assets/P${Penguin.blue_counter}_Blue.svg`
+			this._image.src = `./assets/P${Penguin.blue_counter}_Blue.png`
 		}
 		else if (player_number == 1) {
 			Penguin.green_counter += 1
-			this._image.src = `./assets/P${Penguin.green_counter}_Green.svg`
+			this._image.src = `./assets/P${Penguin.green_counter}_Green.png`
 		}
 	}
 	
@@ -72,7 +72,7 @@ class Penguin {
 		}
 
 		var w = this._board._cell_w / 1.4
-		var h = this._image.height * w * 1.3 / this._image.width
+		var h = this._image.height * w * 1.0 / this._image.width
 		this._context.drawImage (this._image, 0, 0, this._image.width, this._image.height, x-w/2, y-h/2, w, h);
 /*		var radius = this._board._cell_w / 5
 
