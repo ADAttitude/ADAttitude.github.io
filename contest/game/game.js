@@ -388,6 +388,10 @@ class Game {
 		var x = canvas.width/2
 		var y = canvas.height - font_height * 0.75
 		this.context.fillText (message, x, y); 
+
+		message = `Height: ${canvas.getAttribute ('height')}, Width: ${canvas.getAttribute ('width')}`
+		y -= font_height * 2.0
+		this.context.fillText (message, x, y); 
 	}	
 
 	/** ===========================================================================================
