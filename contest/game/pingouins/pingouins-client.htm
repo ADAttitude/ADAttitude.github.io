@@ -73,14 +73,21 @@
 		{
 			canvas = document.getElementById('canvas');
 			context = canvas.getContext('2d');			
-
+			
+			let dpi = window.devicePixelRatio;
+			let style_height = +getComputedStyle(canvas).getPropertyValue("height").slice(0, -2);
+			let style_width = +getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
+			
+			canvas.setAttribute('height', style_height * dpi);
+			canvas.setAttribute('width', style_width * dpi);
+			/*
 			const ratio = Math.ceil(window.devicePixelRatio);
 			canvas.width = screen.width * ratio
 			canvas.height = screen.height * ratio
 //			canvas.style.width = `${screen.width}px`;
 //			canvas.style.height = `${screen.height}px`;
 			context.setTransform(ratio, 0, 0, ratio, 0, 0);
-
+*/
 			game = new Pingouins (context, SERVER_URI, agent_1, agent_2, languages [language], seed, stake_key)
 			
 			// Disable context menu on right click
