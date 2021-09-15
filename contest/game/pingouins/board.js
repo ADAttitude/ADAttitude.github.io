@@ -12,6 +12,7 @@ class PingouinsBoard {
         }
         
         this._disolve = null
+        this._highlighted = null
         this._start_tile = null
         this._end_tile = null
         this._start_pos = []
@@ -56,28 +57,115 @@ class PingouinsBoard {
 	
 	/** ===========================================================================================
 	* Called to draw the object
+    * @param {object}	mouse       Information on mouse device
+    * @param {object}	touch       Information on touch device
 	*/
-	draw (mouse) {		
+	draw (mouse, touch) 
+    {		
+        this._handle_UI (mouse, touch)
+        this._size_elements ()
+        this._draw_board ()
+    }
 
-        // Unselect start tile on right click
-        if (mouse.buttons == 2) {
-            this._start_tile = null
-            this._end_tile = null
+	/** ===========================================================================================
+     * Handle user interaction with the mouse or touch events
+     */
+    _handle_UI (mouse, touch) {
+
+        var unselect = false
+
+        if (this._start_tile != null && this._is_clicked (this._start_tile [0], this._start_tile [1], null, touch))
+            unselect = true
+
+        this._highlighted = null
+        for (let col = 0; col < 8; col ++) 
+        {
+            for (let row = 0; row < 8; row ++) 
+            {
+                if ( this._can_select_tile (col, row) && this._is_highlighted (col, row, mouse, touch)) 
+                {
+                    this._highlighted = [col, row]
+                    if (this._is_clicked (col, row, mouse, touch)) 
+                    {
+                        if (this._end_pos.length == 0) this._start_tile = this._highlighted
+                        else this._end_tile = this._highlighted
+                    }        
+                }
+            }
         }
 
-        this._size_elements ()
-        this._draw_board (mouse)
+        // Unselect start tile on right click
+        if (unselect || mouse.buttons == 2) {
+            this._start_tile = null
+            this._end_tile = null
+            this._highlighted = null
+            this._end_pos = []
+        }
+
+        // Delete touch event content when ended
+        if (touch.end != null) {
+            touch.start = null
+            touch.current = null
+            touch.end = null
+        }
+    }
+
+
+	/** ===========================================================================================
+     * Return true if a tile is hovered and needs highlighting
+     */
+     _is_highlighted (col, row, mouse, touch) {
+        var [x, y] = this.get_tile_coo (col, row)
+        
+        // Hover with mouse ?
+        if (this._test_tile (x, y, mouse.x, mouse.y)) return true
+        
+        // Hover with finger ?
+        if (touch.current != null && this._test_tile (x, y, touch.current [0], touch.current [1])) return true
+
+        return false
+    }
+
+
+	/** ===========================================================================================
+     * Return true if we click on a tile
+     */
+     _is_clicked (col, row, mouse, touch) {
+        var [x, y] = this.get_tile_coo (col, row)        
+
+        // Mouse click ?
+        if (mouse != null && mouse.buttons == 1) return true
+
+        // Release finger on this tile ?
+        if (touch != null && touch.end != null && this._test_tile (x, y, touch.end [0], touch.end [1])) return true
     }
     
 	/** ===========================================================================================
-     * 
+     * Return true if the provided tile coordinate is a tile that the user can select
+     */
+    _can_select_tile (col, row) {
+
+        // End position selection
+        if (this._end_pos.length > 0) {
+            if (this._end_pos.findIndex (p => p [0] == col && p [1] == row) >= 0) return true
+        }
+
+        // Start position selection
+        else if (this._start_pos.findIndex (p => p [0] == col && p [1] == row) >= 0) return true
+        return false
+    }
+
+    
+	/** ===========================================================================================
+     * Set content of the tiles
+     * @param {array [array]}	fishes			A 8x8 array containing the number of fishes (0-3) for each tile
      */
     set_fishes (fishes) {
         this.ice = fishes
     }
     
 	/** ===========================================================================================
-     * 
+     * Define what tiles contain a valid penguin to select for the next move
      */
     set_start_positions (start_positions) {
         if (start_positions == null) start_positions = []
@@ -87,7 +175,7 @@ class PingouinsBoard {
     }
 
 	/** ===========================================================================================
-     * 
+     * Define what are the valid landing tiles once a penguin is selected
      */
     set_end_positions (end_positions) {
         if (end_positions == null) end_positions = []
@@ -107,7 +195,7 @@ class PingouinsBoard {
     }
 
 	/** ===========================================================================================
-     * Compute the tile coordinate resuling from a given action
+     * Compute the tile coordinate resulting from a given action
      * 
      * @param {number}  x            Tile start position
      * @param {number}  y            Tile start position
@@ -153,7 +241,7 @@ class PingouinsBoard {
     * 
     * @param mouse      Mouse state reported by the app
 	*/
-	_draw_board (mouse) {
+	_draw_board () {
     
         for (let col = 0; col < 8; col ++) {
             for (let row = 0; row < 8; row ++) {
@@ -170,7 +258,7 @@ class PingouinsBoard {
                 }
 
                 // Otherwise
-                else this._draw_tile_augmented (col, row, num_fishes, mouse)
+                else this._draw_tile_augmented (col, row, num_fishes)
             }    
         }	
 	}
@@ -181,46 +269,29 @@ class PingouinsBoard {
      * @param {number}  col             Tile column on board
      * @param {number}  row             Tile row on board
      * @param {number}  num_fishes      Number of fishes on the tile
-     * @param {Obhect}  mouse           Mouse state reported by the app
      */
-    _draw_tile_augmented (col, row, num_fishes, mouse) {
+    _draw_tile_augmented (col, row, num_fishes) {
 
         var shadow = false
-        var start_highlight = false
+        var highlight = false
         var selection_color = null
         var [x, y] = this.get_tile_coo (col, row)
 
-        // Highlight when hovered
-        if (this._start_tile == null) {
-            if (this._start_pos.findIndex (p => p [0] == col && p [1] == row) >= 0) {
-                var [tx, ty] = this.get_tile_coo (col, row)
-                
-                // Select on click
-                if (this._test_tile (tx, ty, mouse.x, mouse.y)) {
-                    start_highlight = true
-                    if (mouse.buttons == 1) this._start_tile = [col, row]
-                }
-            }    
-        }
-
         // Highlight when selected
-        else if (this._start_tile [0] == col && this._start_tile [1] == row)
-        start_highlight = true
+        if (this._highlighted != null && this._highlighted [0] == col && this._highlighted [1] == row)
+            highlight = true
+
+        // Highlight selected start position
+        if (this._start_tile!= null && this._start_tile [0] == col && this._start_tile [1] == row)
+            highlight = true
 
         // Shadow when not a possible destination
-        else if (this._end_pos != null) {
+        else if (this._end_pos.length > 0) {
             if (this._end_pos.findIndex (p => p [0] == col && p [1] == row) < 0)
                 shadow = true
-            else {
-                var [tx, ty] = this.get_tile_coo (col, row)
-                if (this._test_tile (tx, ty, mouse.x, mouse.y)) {
-                    start_highlight = true
-                    if (mouse.buttons == 1) this._end_tile = [col, row]
-                }
-            }            
         }
         
-        if (start_highlight) selection_color = "rgba(200,0,0,0.4)"
+        if (highlight) selection_color = "rgba(200,0,0,0.4)"
         if (shadow) selection_color = "rgba(0,0,0,0.5)"
         this._draw_tile (x, y, num_fishes, selection_color)
     }
@@ -242,7 +313,9 @@ class PingouinsBoard {
         var cw = this._cell_w * scale
         var ch = this._cell_h * scale
         this.context.drawImage (img, 0, 0, w, h, x - cw/2, y -ch/2, cw, ch);
-        this._draw_hexagone (x, y, selection_color, "white", 3)
+
+        var lineWidth = this._cell_w * 0.03
+        this._draw_hexagone (x, y, selection_color, "white", lineWidth)
     }
 
 	/** ===========================================================================================

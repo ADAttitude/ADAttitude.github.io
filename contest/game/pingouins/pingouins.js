@@ -97,7 +97,7 @@ class Pingouins extends Game {
 	draw () {
 
 		// Draw board and penguins above
-		this.board.draw (this.mouse)
+		this.board.draw (this.mouse, this.touch)
 		this._penguins.forEach (penguin => {
 			penguin.draw ()
 		})

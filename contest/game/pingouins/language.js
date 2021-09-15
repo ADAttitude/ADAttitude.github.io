@@ -7,8 +7,8 @@ var languages = {
     },
 
     "fr": {
-        blue_wins: "Les pingouins bleus gagnent !",
-        green_wins: "Les pingouins verts gagnent !",
-        drawn: "Partie nulle"
+        blue_wins: "CARDA-TM remporte la partie !",
+        green_wins: "Félicitations, vous avez gagné !",
+        drawn: "C'était si proche ..."
     }
 }

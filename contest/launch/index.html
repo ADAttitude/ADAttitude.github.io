@@ -473,8 +473,14 @@
     
     <script>
 
+        const queryString = window.location.search;
+		const urlParams = new URLSearchParams(queryString);
+        demo = 0
+		if (urlParams.has ('demo')) demo = urlParams.get('demo')
+
         var soon = document.getElementById("modal_soon")
-        soon.style.display = "block";
+        if (demo == 0) soon.style.display = "block";
+        else soon.style.display = "none"
 
         $('.js-pscroll').each(function(){
             var ps = new PerfectScrollbar(this);
@@ -606,7 +612,7 @@
             message += '</div>'
 
             var on_accept = function () {
-			    var link = `../game/pingouins/pingouins-client.htm?language=fr` 
+			    var link = `../game/pingouins/pingouins-client.htm?language=en` 
 			    window.location.href = link;
             }
 
@@ -698,7 +704,7 @@
                     message += '</div>'
 
                     var on_accept = function () {					
-					    var link = `../game/pingouins/pingouins-client.htm?language=fr&key=${found_stake_key}` 
+					    var link = `../game/pingouins/pingouins-client.htm?language=en&key=${found_stake_key}` 
 					    window.location.href = link;
                     }
 

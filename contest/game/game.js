@@ -28,15 +28,26 @@ class Game {
 		this.context = context
 		
 		this.status = "connecting"
+		
 		this.mouse = new Object ()
 		this.mouse.x = 0
 		this.mouse.y = 0	
+
+		this.touch = new Object ()
+		this.touch.start = null
+		this.touch.current = null
+		this.touch.end = null
 		
 		this.cardatm = new Cardatm (context)
 
+		canvas.addEventListener("touchstart", (e) => {this._process_touch_start_event (e)})		
+		canvas.addEventListener("touchmove", (e) => {this._process_touch_move_event (e)})		
+		canvas.addEventListener("touchend", (e) => {this._process_touch_end_event (e)})		
+		canvas.addEventListener("touchcancel", (e) => {this._process_touch_cancel (e)})		
+
 		canvas.addEventListener('mousemove', (e) => {this._process_move_event (e)})		
 		canvas.addEventListener('mousedown', (e) => {this._process_move_event (e)})		
-		canvas.addEventListener('mouseup', (e) => {this._process_move_event (e)})		
+		canvas.addEventListener('mouseup', (e) => {this._process_move_event (e)})	
 
 		canvas.addEventListener('click', (e) => {this._process_click (e)})
 
@@ -45,8 +56,59 @@ class Game {
 	}	
 	
 	/** ===========================================================================================
+	* Handle touch event
+	* @param {TouchEvent}	event	A TouchEvent instance
+	*/
+	_process_touch_start_event (event) {
+		if (event.target == canvas && event.touches.length > 0) {
+
+			var t = event.touches [0]
+			this.touch.start = [t.clientX, t.clientY]
+			this.touch.current = [t.clientX, t.clientY]
+			event.preventDefault();
+		}
+	}
+	
+	/** ===========================================================================================
+	* Handle touch event
+	* @param {TouchEvent}	event	A TouchEvent instance
+	*/
+	_process_touch_move_event (event) {
+		if (event.target == canvas && event.touches.length > 0) {
+
+			var t = event.touches [0]
+			this.touch.current = [t.clientX, t.clientY]
+			event.preventDefault();
+		}
+	}
+
+	/** ===========================================================================================
+	* Handle touch event
+	* @param {TouchEvent}	event	A TouchEvent instance
+	*/
+	_process_touch_end_event (event) {
+		if (event.target == canvas) {
+			this.touch.end = this.touch.current
+			event.preventDefault();
+		}
+	}
+
+	/** ===========================================================================================
+	* Handle touch event
+	* @param {TouchEvent}	event	A TouchEvent instance
+	*/
+	_process_touch_cancel (event) {
+		if (event.target == canvas) {
+			
+			this.touch.start = null
+			this.touch.current = null
+			this.touch.end = null
+			event.preventDefault();
+		}
+	}
+
+	/** ===========================================================================================
 	* Record mouse position and what buttons are pressed
-	*
 	* @param {MouseEvent}	event	A MouseEvent instance
 	*/		
 	_process_move_event (event) {
@@ -59,7 +121,6 @@ class Game {
 
 	/** ===========================================================================================
 	* Process click event. We check for click on the "go fullscreen" icon
-	*
 	* @param {MouseEvent}	event	A MouseEvent instance
 	*/		
 	_process_click (event) {
@@ -75,7 +136,6 @@ class Game {
 	/** ===========================================================================================
 	* ASYNC loop managing the connection with the server.
 	* The loop ends when we lose the connection or when the end of the game is reached.
-	*
 	* @param {string}	uri			Server address
 	* @param {string}	game_name	The name of the game to start at the server side
 	* @param {string}	agent_1		First agent type
@@ -131,7 +191,6 @@ class Game {
 	
 	/** ===========================================================================================
 	* ASYNC Create an agent of a given type
-	*
 	* @param agent_type		'player' for an external agent, or any other agent name matching those
 	*						defined in the BuddyServer configuration file
 	*/
@@ -146,7 +205,6 @@ class Game {
 
 	/** ===========================================================================================
 	* The never ending game loop of this application that is constantly being called by the browser
-	*
 	* @param timestamp	??
 	*/		
 	_game_loop = (timeStamp) =>
@@ -185,6 +243,7 @@ class Game {
 			this.update (elapsed)
 			this.cardatm.update (elapsed)
 
+			this._draw_demo_background ()
 			this.draw ()
 			this.cardatm.draw ();
 			
@@ -197,8 +256,7 @@ class Game {
 
 		
 	/** ===========================================================================================
-	* ASYNC function to sleep for some time
-	
+	* ASYNC function to sleep for some time	
 	* @param {number} ms	Time to sleep in [ms]
 	*/		
 	sleep (ms) {
@@ -244,7 +302,6 @@ class Game {
 
 	/** ===========================================================================================
 	* Display a banner on the screen (like the one when someone wins)
-	
 	* @param {string} message	Message on the banner
 	* @param 		  style		A color, in any accpeted format
 	* @param 		  y			Vertical position on screen (-1=middle)
@@ -273,10 +330,31 @@ class Game {
 		var x = canvas.width/2
 		this.context.fillText (message, x, y); 		
 	}	
+
+	/** ===========================================================================================
+	 * Draw "DEMO" in the background
+	 */
+	_draw_demo_background () {
+		var font_size = Math.round (this.context.canvas.height/30)
+		canvas.style.font = this.context.font;
+		canvas.style.fontSize = `${font_size}px`;
+		this.context.font = canvas.style.font;
+		this.context.fillStyle = "grey";
+		this.context.textAlign = "center";
+		this.context.textBaseline = "middle"; 
+
+		var step_x = font_size * 5
+		var row = 0
+		for (let y = 0; y < this.context.canvas.height; y += font_size * 2) {
+			for (let x = 0; x < this.context.canvas.width + step_x; x += step_x) {
+				this.context.fillText ("D E M O", x + (row%2) * step_x *0.5, y);
+			}
+			row += 1
+		}
+	}
 	
 	/** ===========================================================================================
 	* Display a splash screen with additional comment string giving clues about what the app is doing
-	*
 	* @param {string} message	The message to display below the splash screen
 	* @param {string} color		A color name	
 	*/
@@ -387,7 +465,6 @@ class Game {
 
 	/** ===========================================================================================
 	 * Parse a "players" string
-	 * 
 	 * @param {string} players	A string in the form "p1:role1;p2..."
 	 * @return					A list [{number, role}]
 	 */
@@ -409,7 +486,6 @@ class Game {
 	
 	/** ===========================================================================================
 	 * Parse a "player actions" string
-	 * 
 	 * @param {string} player_actions	A string in the form "p1:role1:action1;p2..."
 	 * @return							A list [{number, role, action}]
 	 */
@@ -433,7 +509,6 @@ class Game {
 
 	/** ===========================================================================================
 	 * Parse a "player rewards" string
-	 * 
 	 * @param {string} player_rewards	A string in the form "p1:role1:rewards1;p2..."
 	 * @return							A list [{number, role, reward}]
 	 */
