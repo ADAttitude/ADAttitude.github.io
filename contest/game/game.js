@@ -62,9 +62,11 @@ class Game {
 	_process_touch_start_event (event) {
 		if (event.target == canvas && event.touches.length > 0) {
 
+			let dpi = window.devicePixelRatio;
+
 			var t = event.touches [0]
-			this.touch.start = [t.clientX, t.clientY]
-			this.touch.current = [t.clientX, t.clientY]
+			this.touch.start = [t.clientX * dpi, t.clientY * dpi]
+			this.touch.current = [t.clientX * dpi, t.clientY * dpi]
 			event.preventDefault();
 		}
 	}
@@ -76,8 +78,10 @@ class Game {
 	_process_touch_move_event (event) {
 		if (event.target == canvas && event.touches.length > 0) {
 
+			let dpi = window.devicePixelRatio;
+
 			var t = event.touches [0]
-			this.touch.current = [t.clientX, t.clientY]
+			this.touch.current = [t.clientX * dpi, t.clientY * dpi]
 			event.preventDefault();
 		}
 	}
@@ -390,10 +394,6 @@ class Game {
 		
 		var x = canvas.width/2
 		var y = canvas.height - font_height * 0.75
-		this.context.fillText (message, x, y); 
-
-		message = `Height: ${canvas.getAttribute ('height')}, Width: ${canvas.getAttribute ('width')}`
-		y -= font_height * 2.0
 		this.context.fillText (message, x, y); 
 	}	
 
