@@ -209,9 +209,12 @@ class Game {
 	*/		
 	_game_loop = (timeStamp) =>
 	{
-		this.context.canvas.width = window.innerWidth;
-		this.context.canvas.height = window.innerHeight;
-		
+		// Adjust Canvas to use full resolution
+		let dpi = window.devicePixelRatio;
+		this.context.canvas.width = window.innerWidth * dpi;
+		this.context.canvas.height = window.innerHeight * dpi;
+
+		// Elapsed time between frames
 		var current = Date.now()
 		var elapsed = current - this.start;
 		this.start = current;
