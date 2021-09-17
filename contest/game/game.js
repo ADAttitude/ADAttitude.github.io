@@ -117,9 +117,10 @@ class Game {
 	*/		
 	_process_move_event (event) {
 		
-		const rect = canvas.getBoundingClientRect()
-		this.mouse.x = event.clientX - rect.left
-		this.mouse.y = event.clientY - rect.top
+		let dpi = window.devicePixelRatio;
+		//const rect = canvas.getBoundingClientRect()
+		this.mouse.x = event.clientX * dpi
+		this.mouse.y = event.clientY * dpi
 		this.mouse.buttons = event.buttons		
 	}
 
