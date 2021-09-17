@@ -267,9 +267,12 @@ color: #FFFFFF;
 #hero-banner{
   overflow: hidden;
   height: 600px;
+  max-height: 70vh;
+  width: 100%;
   color: #4C4C4C;
   background-position: center center;
 }
+
 #hero-banner.item {
   height: 558px;
   background-repeat: no-repeat;
@@ -287,6 +290,7 @@ color: #FFFFFF;
 #hero-banner{
   background: #FFFFFF url('../images/banner/bg2.jpg') no-repeat 100% bottom;
   margin-top: -4px;
+  object-fit:scale-down;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -955,7 +959,7 @@ width: 100px;
   padding-bottom: 30px;
   color: rgba(255, 255, 255, 0.6);
   background: #252525;
-  font-size: 13px;
+  font-size: 15px;
 }
 #footer a {
   color: #fff;
@@ -979,6 +983,12 @@ text-align: center;
 @media only screen and (min-width: 768px) {
   #footer .social-icons {
     float: right;
+    font-size: 30px;
+  }
+  #footer li {
+    display:inline-block;
+    width:100%;
+    margin-left: 20px;
   }
 }
 .form-control {

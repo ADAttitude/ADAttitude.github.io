@@ -209,7 +209,6 @@ h1 {
 	height: 4.6em;
 }
 #player1 li:first-child {
-	/*background-image: url(connect4/red.svg);*/
 	background-size: 1.5em 1.5em;
 	background-repeat: no-repeat;
 	background-position: left center;		
@@ -223,7 +222,6 @@ h1 {
 	height: 4.6em;
 }
 #player2 li:first-child {
-	/*background-image: url(connect4/yellow.svg);*/
 	background-size: 1.5em 1.5em;
 	background-repeat: no-repeat;
 	background-position: left center;		

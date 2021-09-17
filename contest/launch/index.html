@@ -3,12 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="jsg">
-    <title>ADAttitude Staking Pool | Contest</title>
+    <title>ADAttitude Stake Pool | Contest</title>
+    <meta name="description" content="Play Hey, That's My Fish! against a General Game Playing AI agent to gain extra rewards">
+    <meta name="author" content="The Incredible JSG">
 	<!-- core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
+    <script src="https://kit.fontawesome.com/eabb7625ef.js" crossorigin="anonymous"></script>
     <link href="css/animate.min.css" rel="stylesheet"> 
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet"> 
@@ -44,9 +45,9 @@
 						 <li class="scroll"><a href="#portfolio">Rules</a></li>
                     </ul>
                 </div>
-            </div><!--/.container-->
-        </nav><!--/nav-->
-    </header><!--/header-->
+            </div>
+        </nav>
+    </header>
 
     <!--
         <div class="wrap-table100">
@@ -248,7 +249,7 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Winning by delegating</h4>
-                                <p>The score increases with the amount of delegated ADA, even if you don't play the game at all</p>
+                                <p>The score increases with the amount of delegated ADA. The only condition is to have played at least 1 game.</p>
                             </div>
                         </div>
                     </div>
@@ -271,7 +272,7 @@
                                 <i class="fa fa-heart-o"></i>
                             </div>
                             <div class="media-body">
-                                <h4 class="media-heading">Favoring early delegators</h4>
+                                <h4 class="media-heading">Favoring loyal delegators</h4>
                                 <p>The longer you stake, the higher your score.</p>
                             </div>
                         </div>
@@ -306,7 +307,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title wow fadeInDown">Contest statistics</h2>
-                <p class="wow fadeInDown">Contest started at August 21th 2021 and is open until our next block in minted.<br>Those figures are updated every 10 minutes.</p>
+                <p class="wow fadeInDown">Contest started at August 21th 2021 and is open until our next block in minted. Revised rules will be published after each block.<br>Those figures are updated every 10 minutes.</p>
             </div>
 
             <div class="row text-center">
@@ -450,8 +451,8 @@
                     <ul class="social-icons">
                         <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
                         <li><a href="https://twitter.com/TICKER_HELLO"><i class="fa fa-twitter"></i></a></li>
-                        <!--<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                        <li><a href="#"><i class="fab fa-discord"></i></a></li>
+                        <!--<li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
                         <li><a href="#"><i class="fa fa-youtube"></i></a></li>
                         <li><a href="#"><i class="fa fa-github"></i></a></li>-->
                     </ul>
@@ -605,7 +606,7 @@
 		function launch_visitor () {
 			
             message = '<div class="row"><div class="col-sm-8">'
-            message += '<h2>You are about to confront our Carda<sup>TM</sup> AI</h2>'
+            message += '<h2>You are about to confront Carda<sup>TM</sup></h2>'
             message += "Remind that, as a visitor, your eventual victories will not be taken into account for the contest"
             message += '</div>'
             message += '<div class="col-sm-4"><img class="img-responsive" src="images/CardATM.png" alt=""></img></div>'
@@ -689,7 +690,7 @@
                     */
 
                     message = '<div class="row"><div class="col-sm-8">'
-                    message += '<h2>You are about to confront our Carda<sup>TM</sup> AI</h2>'
+                    message += '<h2>You are about to confront Carda<sup>TM</sup></h2>'
                     message += "Your are currently identified with the following staking key:<br><b>" + key_link + "</b><br>"
                     message += "Your personal statistics are:<ul>"
                     message += `<li>Average stake since beginning of the contest: ${avg_stake} ₳</li>`
@@ -698,7 +699,7 @@
                     message += `<li>Your current score: <b>${score}</b></li>`
                     message += "</ul>"
                     message += "Please note that only your victories are taken into account to compute your score.<br>"
-                    message += "As a result, there is no point in playing for another delegator."
+                    message += "Lost games do not negatively affect it."
                     message += '</div>'
                     message += '<div class="col-sm-4"><img class="img-responsive" src="images/CardATM.png" alt=""></img></div>'
                     message += '</div>'

@@ -2,7 +2,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Create a new websocket client
-	*
 	* @param {string}	uri 	The server address to connect to
 	*/	
 	constructor (uri) {
@@ -23,7 +22,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Return the ready state of the underlying websocket
-	*
 	* @retrun		Web socket ready state (WebSocket.CONNECTING, WebSocket.OPEN, etc.)
 	*/
 	status () {
@@ -43,7 +41,6 @@ class WebSocketClient {
 
 	/** ===========================================================================================
 	* Send a response to the ws server
-	*
 	* @param id			Id of the initial request, to populate the "id" field
 	* @param name		Name of the initial request, to populate the "type" field
 	* @param data		Any data that can be converted in JSON, to populate the "data" field of the message
@@ -54,7 +51,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Callback triggered when the ws connection is established with the server
-	*
 	* @param e			ws event
 	*/
 	ws_onopen = (e) => {
@@ -63,7 +59,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Callback triggered when a message is received from the ws server
-	*
 	* @param {string} message			Incoming message, in JSON format
 	*/
 	ws_onmessage = message => {
@@ -94,7 +89,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Callback triggered when the ws connection is closed
-	*
 	* @param event			ws event
 	*/
 	ws_onclose = event => {
@@ -110,12 +104,11 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Callback triggered in case of communication error
-	*
 	* @param error			ws error
 	*/
 	ws_onerror = error => {
 		console.log (`[WS] Websocket error: ${error.message}`);
-		if (this.close_reason == "") this.close_reason = '|' + error.message + '|'
+		if (this.close_reason == "") this.close_reason = ' ' + error.message + ' '
 	}	
 	
 	/** ===========================================================================================
@@ -182,7 +175,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* ASYNC: Wait the answer of the ws server
-	*
 	* @param {number}	id	ID we are expecting
 	* @returns			The received message that matches the given id
 	*					null if the connection is closed before we could find the expected message
@@ -209,7 +201,6 @@ class WebSocketClient {
 	
 	/** ===========================================================================================
 	* Check in the incoming queue if a message with a given id is present
-	*
 	* @param {number}	id	ID we are expecting
 	* @returns			The matching message if found, null otherwise
 	*/

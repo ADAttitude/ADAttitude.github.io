@@ -464,8 +464,6 @@ class Game {
 			else if (type == "ThinkProgress") {
 
 				this.cardatm.set_progress (data.progress)
-				//console.log (data)
-				//Object { contest: 21, player: "0:Blue", progress: 0.788 }
 			}
 		}
 	}

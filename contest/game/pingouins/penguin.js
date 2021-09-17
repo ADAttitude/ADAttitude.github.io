@@ -74,16 +74,6 @@ class Penguin {
 		var w = this._board._cell_w / 1.4
 		var h = this._image.height * w * 1.0 / this._image.width
 		this._context.drawImage (this._image, 0, 0, this._image.width, this._image.height, x-w/2, y-h/2, w, h);
-/*		var radius = this._board._cell_w / 5
-
-		this._context.beginPath ()
-		this._context.arc (x, y, radius, 0, 2 * Math.PI, false);
-        this._context.closePath();
-		
-		var color = "blue"
-		if (this._player_number == 1) color = "green"
-		this._context.fillStyle = color;
-        this._context.fill();*/
     }
 
 }
