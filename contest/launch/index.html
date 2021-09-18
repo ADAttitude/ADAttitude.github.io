@@ -541,21 +541,39 @@
 			.then(res => res.json())
 			.then(json_data => {
 			
-                board_data = json_data
-                var tops = [json_data [0], json_data [1], json_data [2]]
+                var filtered = json_data.filter (function (value, index, arr) { 
+                    key = value ['stake_key'].toLowerCase ()
+                    if (key == '4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375') return false
+                    if (key == 'a23e3529aa148657c98eb812c48f123a8f478d7b3f603b6baa86c9a5') return false           
+                    if (key == 'a45d9baf420ccd0888ca4d1b448d62273d710fb2743146252f7fd75e') return false
+                    if (key == 'accf0a8f8d8b746c70f0e00b4ed51ea575e6fce4ada833198a821538') return false
+                    return true       
+                });
+
+                var tops = []
+                if (filtered.length == 0) tops = []
+                else if (filtered.length == 1) tops = [filtered [0]]
+                else if (filtered.length == 2) tops = [filtered [0], filtered [1]]
+                else tops = [filtered [0], filtered [1], filtered [2]]
 
                 for (var i = 0; i < 3; i ++)
                 {
-                    var div = document.getElementById('top' + (i+1).toString () + '-addr');
-                    div.innerHTML= convert_address (tops [i] ['stake_key'])
+                    var div_0 = document.getElementById('top' + (i+1).toString () + '-addr');
+                    var div_1 = document.getElementById('top' + (i+1).toString () + '-details');
+                    var div_2 = document.getElementById('top' + (i+1).toString () + '-score');
 
-                    var div = document.getElementById('top' + (i+1).toString () + '-details');
-                    div.innerText='Bonus: ' + tops [i] ['bonus'].toFixed (1) + ' / #Victories: ' + tops [i] ['num_victories'].toString ()
-
-                    var div = document.getElementById('top' + (i+1).toString () + '-score');
-                    div.innerText='Score:' + tops [i] ['score'].toFixed (1)
+                    if (i < tops.length) {
+                        div_0.innerHTML= convert_address (tops [i] ['stake_key'])
+                        div_1.innerText='Bonus: ' + tops [i] ['bonus'].toFixed (1) + ' / #Victories: ' + tops [i] ['num_victories'].toString ()
+                        div_2.innerText='Score:' + tops [i] ['score'].toFixed (1)
+                    }
+                    else 
+                    {
+                        div_0.innerHTML= "Nobody here yet";
+                        div_1.innerHTML= "An easy spot to take";
+                        div_2.innerHTML= "A single game will make you land here";
+                    }
                 }
-
 			});
 
 		}
@@ -650,44 +668,6 @@
 
                     var ref = 'https://cardanoscan.io/stakekey/' + found_stake_key
                     var key_link = '<a target="_blank" href="' + ref + '">' + found_stake_key + '</a>'
-
-
-                    /*
-
-        <div class="container">
-
-            <div class="section-header">
-                <h2 class="section-title wow fadeInDown">About</h2>                
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6 wow fadeInLeft">
-                  <img class="img-responsive" src="images/challenge.png" alt="">
-                </div>
-
-                <div class="col-sm-6 wow fadeInRight">
-                    <h3 class="column-title">Why this contest</h3>
-                    <p>Starting a new pool from scratch is challenging as such a pool is not very attractive when there is nobody to delegate to it. That is why we propose a challenge to all our early delegators to get traction. Our next minted block (340 ADA) will be fully dedicated to the winners of this challenge.</p>
-					
-					<ul>
-					<li>180 ADA for the winner</li>
-					<li>100 ADA for the second place</li>
-					<li>60 ADA for the third place</li>
-					</ul>
-
-                    <p>Although anybody can play to this challenge, you must be one of our delegators to pretend to the price.
-					The winners will be the 3 delegators with the <b>highest scores</b> once the next block is minted.</p>
-					
-					<p class="wow fadeInDown">The score follows a formula that favors two things:
-					<ul>
-					<li>how much you delegate to our pool;</li>
-					<li>how much victories you manage to collect by playing our game.</li>
-					</ul>
-					</p>
-
-                </div>
-            </div>
-                    */
 
                     message = '<div class="row"><div class="col-sm-8">'
                     message += '<h2>You are about to confront Carda<sup>TM</sup></h2>'
