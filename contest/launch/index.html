@@ -550,6 +550,7 @@
                     return true       
                 });
 
+                board_data = filtered
                 var tops = []
                 if (filtered.length == 0) tops = []
                 else if (filtered.length == 1) tops = [filtered [0]]
@@ -645,6 +646,7 @@
 			.then(res => res.json())
 			.then(json_data => {
 
+                // Search for this key in the delegator list
 				var found_stake_key = null
 				for (var stake_key in json_data) {
 					if (stake_key == key || check_player_key_within_addresses (key, json_data [stake_key])) {
@@ -656,15 +658,14 @@
 				// Start the game with a reference on the stake key for the player id
 				if (found_stake_key != null) {
 
-                    var index = -1
-                    for (index = 0; index < board_data.length; index ++) {
-				        if (board_data [index] ['stake_key'] == found_stake_key) break
-			        }
-
-                    var avg_stake = (board_data [index]["avg_stake"] / 1000000).toFixed (2)
-                    var bonus = board_data [index]["bonus"].toFixed (1)
-                    var score = board_data [index]["score"].toFixed (1)
-
+                    // Get statistics for this delegator
+                    var index
+                    if (found_stake_key != null) {
+                        for (index = 0; index < board_data.length; index ++) {
+                            if (board_data [index] ['stake_key'] == found_stake_key) break
+                        }
+                    }
+                    if (index >= board_data.length) index = -1
 
                     var ref = 'https://cardanoscan.io/stakekey/' + found_stake_key
                     var key_link = '<a target="_blank" href="' + ref + '">' + found_stake_key + '</a>'
@@ -672,12 +673,24 @@
                     message = '<div class="row"><div class="col-sm-8">'
                     message += '<h2>You are about to confront Carda<sup>TM</sup></h2>'
                     message += "Your are currently identified with the following staking key:<br><b>" + key_link + "</b><br>"
-                    message += "Your personal statistics are:<ul>"
-                    message += `<li>Average stake since beginning of the contest: ${avg_stake} ₳</li>`
-                    message += `<li>Your base bonus based on this stake: ${bonus}</li>`
-                    message += `<li>Your number of victories: ${board_data [index]["num_victories"]}</li>`
-                    message += `<li>Your current score: <b>${score}</b></li>`
-                    message += "</ul>"
+
+                    if (index >= 0) {
+                        var avg_stake = (board_data [index]["avg_stake"] / 1000000).toFixed (2)
+                        var bonus = board_data [index]["bonus"].toFixed (1)
+                        var score = board_data [index]["score"].toFixed (1)
+                        var num_victories = board_data [index]["num_victories"]
+
+                        message += "Your personal statistics are:<ul>"
+                        message += `<li>Average stake since beginning of the contest: ${avg_stake} ₳</li>`
+                        message += `<li>Your base bonus based on this stake: ${bonus}</li>`
+                        message += `<li>Your number of victories: ${num_victories}</li>`
+                        message += `<li>Your current score: <b>${score}</b></li>`
+                        message += "</ul>"
+                    }
+                    else {
+                        message += "This is the first game you play and by doing so you will register yourself to the challenge<br><br>"
+                    }
+
                     message += "Please note that only your victories are taken into account to compute your score.<br>"
                     message += "Lost games do not negatively affect it."
                     message += '</div>'
@@ -694,7 +707,7 @@
 
                 // Warn user if stake key not found
 				else {
-                    message = "We could not find any delegator associated with this key:<br><b>" + key + "</b><br>"
+                    message = '<b><span style="color:red;">We could not find any delegator associated with this key:</span><br>' + key + "</b><br>"
                     message += "You should check that:<ul>"
                     message += "<li>You have provided a valid stake key or any address associated with your wallet</li>"
                     message += "<li>You are actually delegating to our pool <b>ADAttitude</b></li>"
