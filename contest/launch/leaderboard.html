@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAttitude Stake Pool | Contest leaderboard</title>
+    <meta name="description" content="Full leaderboard for the ADAttitude Stake Pool contest">
+    <meta name="author" content="The Incredible JSG">
+    <link href="css/full_leaderboard.css" rel="stylesheet"> 
+</head> 
+
+<body>
+    <table class="styled-table" id="leaderboard">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Stake Key</th>
+                <th>Avg. Stake</th>
+                <th>Bonus</th>
+                <th>#Victories</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr></tr>
+            <!--
+            <tr class="active-row">
+                <td>1</td>
+                <td>4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375</td>
+                <td>6219</td>
+                <td>27.7</td>
+                <td>1</td>
+                <td>54</td>
+            </tr>
+          
+            <tr>
+                <td>2</td>
+                <td>4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375</td>
+                <td>6219</td>
+                <td>27.7</td>
+                <td>1</td>
+                <td>54</td>
+            </tr>
+           and so on... -->
+        </tbody>
+    </table>
+    <script>
+        
+        fill_leader_board ()
+
+        function fill_leader_board () {
+			
+			fetch('https://adattitude.github.io/board.json')
+			.then(res => res.json())
+			.then(json_data => {
+			
+                var filtered = json_data.filter (function (value, index, arr) { 
+                    key = value ['stake_key'].toLowerCase ()
+                    if (key == '4e1907c171b65d1d765098c2b728884b59bde3d14c6c832469588375') return false
+                    if (key == 'a23e3529aa148657c98eb812c48f123a8f478d7b3f603b6baa86c9a5') return false           
+                    if (key == 'a45d9baf420ccd0888ca4d1b448d62273d710fb2743146252f7fd75e') return false
+                    if (key == 'accf0a8f8d8b746c70f0e00b4ed51ea575e6fce4ada833198a821538') return false
+                    return true       
+                });
+
+                var table = document.getElementById("leaderboard");
+
+                for (var i = 0; i < filtered.length; i ++) {
+                    var row = table.insertRow();
+
+                    if (i <= 2) row.setAttribute("class", "active-row")
+                        
+                    var cell0 = row.insertCell(0);
+                    var cell1 = row.insertCell(1);
+                    var cell2 = row.insertCell(2);
+                    var cell3 = row.insertCell(3);
+                    var cell4 = row.insertCell(4);
+                    var cell5 = row.insertCell(5);
+
+                    cell0.innerHTML = (i +1).toString ();
+                    cell1.innerHTML = filtered [i] ['stake_key'];
+                    cell2.innerHTML = (filtered [i] ['avg_stake']/ 1000000).toFixed (2);
+                    cell3.innerHTML = filtered [i] ['bonus'].toFixed (1);
+                    cell4.innerHTML = filtered [i] ['num_victories'].toString ();
+                    cell5.innerHTML = filtered [i] ['score'].toFixed (1);
+                }
+
+          
+			});
+
+		}
+
+        function convert_address (address) {
+            var l = address.length
+            var ref = 'https://cardanoscan.io/stakekey/' + address
+            converted='<a target="_blank" href="' + ref + '">Stake address: ' + address.substring  (0,8)  + '...' + address.substring (l-9, l) + '</a>'
+            return converted
+        }
+    </script>
+</body>
+

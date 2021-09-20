@@ -128,7 +128,31 @@ class Pingouins extends Game {
 			else if (this._winner == 2)
 				this._draw_banner (this._language.drawn, "rgba(150, 150, 150, 0.6)")
 		}
+
+		// Draw rules
+
+		var message = "MOUSE: click left to select your penguin, right to unselect."
+		var w = this.context.canvas.width
+		var h = this.context.canvas.height
+		var max = 2.0 * w / message.length
+		var font_size = Math.min (max, h / 40)
+	
+		canvas.style.font = this.context.font;
+		canvas.style.fontSize = `${font_size}px`;
+		this.context.font = canvas.style.font;
+		this.context.fillStyle = "white";
+		this.context.textAlign = "center";
+		this.context.textBaseline = "middle"; 
+		
+		var x = canvas.width/2
+		var y = h - font_size*2
+		this.context.fillText (message, x, y); 	
+
+		message = "You play the green team."
+		y += font_size
+		this.context.fillText (message, x, y); 	
 	}
+
 	
 	/** ===========================================================================================
 	* Called by the game loop to know if the game is still busy animating anything
