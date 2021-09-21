@@ -24,6 +24,9 @@ class Game {
 		
 		this.splash = new Image();
 		this.splash.src = "../splash.webp";
+
+		this.background = new Image ();
+		this.background.src = "../assets/background.jpg"
 		
 		this.context = context
 		
@@ -343,6 +346,16 @@ class Game {
 	 * Draw "DEMO" in the background
 	 */
 	_draw_demo_background () {
+
+		var h = this.context.canvas.height
+		var w = this.context.canvas.width
+		var sx = w / this.background.width
+		var sy = h / this.background.height
+		var scale = Math.max (sx, sy)
+		var mx = 0.5*(w - this.background.width*scale)
+		var my = 0.5*(h - this.background.height*scale)
+		this.context.drawImage (this.background, 0, 0, this.background.width, this.background.height, mx, my, this.background.width*scale, this.background.height*scale);
+
 		var font_size = Math.round (this.context.canvas.height/30)
 		canvas.style.font = this.context.font;
 		canvas.style.fontSize = `${font_size}px`;

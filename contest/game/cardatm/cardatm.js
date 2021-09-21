@@ -10,9 +10,9 @@ class Cardatm {
 
 		this._context = context
 
-		let top_left = 518
+		let top_left = 504
 		let top_right = 265
-		let bot_left = 501
+		let bot_left = 487
 		let bot_right = 280
 		let top = 152
 		let bot = 187
@@ -191,7 +191,7 @@ class Cardatm {
 
 		var marge = Math.max (mw, mh)
 		this._width = marge
-		var minimum = scale_w * 0.4
+		var minimum = scale_w * 0.35
 		
 		if (w > h) {
 			this._width =  Math.max (marge, minimum)
