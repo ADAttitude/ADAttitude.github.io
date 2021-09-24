@@ -14,7 +14,7 @@ class Game {
 	* @param {number}	seed		Seed for pseudo randomness
 	* @param {string}	player_id	Free reference to associate with a game
 	*/		
-	constructor (game_name, context, uri, agent_1, agent_2, seed=0, player_id=null, background=True) {
+	constructor (game_name, context, uri, agent_1, agent_2, seed=0, player_id=null, background=true) {
 
 		window.requestAnimationFrame (this._game_loop);
 		this.start = Date.now()
