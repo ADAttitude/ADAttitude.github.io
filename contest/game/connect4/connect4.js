@@ -39,6 +39,24 @@ class Connect4 extends Game {
 	*/
 	draw () {
 		this.board.draw ()
+
+		var message = "If you like this game, visit us at adattitude.github.io"
+		var w = this.context.canvas.width
+		var h = this.context.canvas.height
+		var max = 2.0 * w / message.length
+		var font_size = Math.min (max, h / 40)
+	
+		canvas.style.font = this.context.font;
+		canvas.style.fontSize = `${font_size}px`;
+		this.context.font = canvas.style.font;
+		this.context.fillStyle = "white";
+		this.context.textAlign = "center";
+		this.context.textBaseline = "middle"; 
+		
+		var x = canvas.width/2
+		var y = h - font_size*1.2
+		this.context.fillText (message, x, y); 	
+
 		
 		// Draw a stone under the mouse if a player has to play through the GUI
 		if (this._action_request_id != -1) {
