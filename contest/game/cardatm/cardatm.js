@@ -152,9 +152,6 @@ class Cardatm {
 			this._vib_x_freq.push (this._random_range (1.0, 4.0))
 			this._vib_x_mag.push (this._random_range (1e-4, 3e-3))
 		}
-
-		console.log (this._vib_x_freq)
-		console.log (this._vib_x_mag)
 	}
 
 	_random_range (min, max) {

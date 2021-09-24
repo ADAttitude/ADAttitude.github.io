@@ -14,7 +14,7 @@ class Game {
 	* @param {number}	seed		Seed for pseudo randomness
 	* @param {string}	player_id	Free reference to associate with a game
 	*/		
-	constructor (game_name, context, uri, agent_1, agent_2, seed=0, player_id=null) {
+	constructor (game_name, context, uri, agent_1, agent_2, seed=0, player_id=null, background=True) {
 
 		window.requestAnimationFrame (this._game_loop);
 		this.start = Date.now()
@@ -25,8 +25,11 @@ class Game {
 		this.splash = new Image();
 		this.splash.src = "../splash.webp";
 
-		this.background = new Image ();
-		this.background.src = "../assets/background.jpg"
+		if (background) {
+			this.background = new Image ();
+			this.background.src = "../assets/background.jpg"
+		}
+		else this.background = null
 		
 		this.context = context
 		
@@ -346,6 +349,8 @@ class Game {
 	 * Draw "DEMO" in the background
 	 */
 	_draw_demo_background () {
+
+		if (this.background == null) return
 
 		var h = this.context.canvas.height
 		var w = this.context.canvas.width
