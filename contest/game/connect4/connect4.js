@@ -70,11 +70,11 @@ class Connect4 extends Game {
 			}
 			if (this.touch.current != null) {
 				var x = this.touch.current [0]
-				var y = this.touch.current [1]
+				var y = this.touch.current [1] - this.board.cell_size
 
 				if (this.touch.end != null) {
 					x = this.touch.end [0]
-					y = this.touch.end [1]
+					y = this.touch.end [1] - this.board.cell_size
 					click = true
 					
 					this.touch.start = null
