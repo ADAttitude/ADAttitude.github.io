@@ -61,8 +61,27 @@ class Connect4 extends Game {
 		// Draw a stone under the mouse if a player has to play through the GUI
 		if (this._action_request_id != -1) {
 			
-			var x = this.mouse.x
-			var y = this.mouse.y
+			var click = false
+
+			if (this.mouse != null ) {
+				var x = this.mouse.x
+				var y = this.mouse.y
+				if (this.mouse.buttons >= 1) click = true
+			}
+			if (this.touch.current != null) {
+				var x = this.touch.current [0]
+				var y = this.touch.current [1]
+
+				if (this.touch.end != null) {
+					x = this.touch.end [0]
+					y = this.touch.end [1]
+					click = true
+					
+					this.touch.start = null
+					this.touch.current = null
+					this.touch.end = null
+				}
+			}
 			
 			// Check for magnetism when the stone is above a column where we can play
 			for (let col = 0; col < 7; col ++) {
@@ -81,7 +100,7 @@ class Connect4 extends Game {
 					y = hole_coo [1]
 					
 					// Play the move if mouse button pressed
-					if (this.mouse.buttons >= 1) {
+					if (click) {
 						
 						this.board.drop_stone (col, col, this._gui_player)
 						
