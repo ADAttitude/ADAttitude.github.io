@@ -262,25 +262,25 @@
             <div class="row text-center">
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
-                        <div id="competitors" class="business-stats" data-digit="6850" data-duration="1000"></div>
+                        <div id="competitors" class="business-stats" data-digit="0" data-duration="1000"></div>
                         <strong>Number of competitors</strong>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
-                        <div id="games" class="business-stats" data-digit="1465" data-duration="1000"></div>
+                        <div id="games" class="business-stats" data-digit="0" data-duration="1000"></div>
                         <strong>Number of played games</strong>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="200ms">
-                        <div id="victories" class="business-stats" data-digit="4325" data-duration="1000"></div>
+                        <div id="victories" class="business-stats" data-digit="0" data-duration="1000"></div>
                         <strong>Number of victories</strong>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12">
                     <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="300ms">
-                        <div id="winning_ratio" class="business-stats" data-digit="2568" data-duration="1000"></div>
+                        <div id="winning_ratio" class="business-stats" data-digit="0" data-duration="1000"></div>
                         <strong>Winning ratio</strong>
                     </div>
                 </div>
@@ -398,12 +398,8 @@
                 </div>
                 <div class="col-sm-6">
                     <ul class="social-icons">
-                        <!--<li><a href="#"><i class="fa fa-facebook"></i></a></li>-->
                         <li><a href="https://twitter.com/ADAttitude" target="_blank"><i class="fa fa-twitter"></i></a></li>
                         <li><a href="https://discord.gg/ndy94w49mm" target="_blank"><i class="fab fa-discord"></i></a></li>
-                        <!--<li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                        <li><a href="#"><i class="fa fa-github"></i></a></li>-->
                     </ul>
                 </div>
             </div>
@@ -413,7 +409,6 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script> 
     <script src="js/mousescroll.js"></script>
-    <script src="js/smoothscroll.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/jquery.isotope.min.js"></script>
     <script src="js/jquery.inview.min.js"></script>
@@ -431,14 +426,6 @@
         var soon = document.getElementById("modal_soon")
         if (demo == 0) soon.style.display = "block";
         else soon.style.display = "none"
-
-        $('.js-pscroll').each(function(){
-            var ps = new PerfectScrollbar(this);
-
-            $(window).on('resize', function(){
-                ps.update();
-            })
-        });
 
         fill_leader_board ()
         fill_stats ()
@@ -556,15 +543,30 @@
             var total_games = 0
             var total_victories = 0
 
-            fetch('https://adattitude.github.io/players.json')
-                .then(res => res.json())
-                .then(json_data => {
-                
-                    for (var key in json_data) {
-                        value = json_data [key]
-                        total_games += value ['num_victories'] + value ['num_draws'] + value ['num_defeats']  +value ['num_abandons']
-                        total_victories += value ['num_victories']
-                    }                
+            // Collect some statistics
+            Promise.all([
+                fetch('https://adattitude.github.io/players_S01.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S02.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S03.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S04.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S05.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S06.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S07.json').then(resp => resp.json()),
+                fetch('https://adattitude.github.io/players_S08.json').then(resp => resp.json())
+                ]).then (ar => {
+
+                    var total_games = 0;
+                    var total_victories = 0;
+
+                    for (var i = 0; i < 8; i ++) {
+                        json_data = ar [i];
+
+                        for (var key in json_data) {
+                            value = json_data [key]
+                            total_games += value ['num_victories'] + value ['num_draws'] + value ['num_defeats']  +value ['num_abandons']
+                            total_victories += value ['num_victories']
+                        } 
+                    }
 
                     var div = document.getElementById('games');
                     div.setAttribute ('data-digit', total_games)          
@@ -574,6 +576,7 @@
 
                     var div = document.getElementById('winning_ratio');
                     div.setAttribute ('data-digit', (100*total_victories/total_games).toFixed (1) + "%")
+
                 });
         }
 
