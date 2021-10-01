@@ -257,7 +257,7 @@ class Game {
 			this.update (elapsed)
 			this.cardatm.update (elapsed)
 
-			this._draw_demo_background ()
+			this._draw_background (false)
 			this.draw ()
 			this.cardatm.draw ();
 			
@@ -348,7 +348,7 @@ class Game {
 	/** ===========================================================================================
 	 * Draw "DEMO" in the background
 	 */
-	_draw_demo_background () {
+	_draw_background (demo) {
 
 		if (this.background == null) return
 
@@ -361,21 +361,23 @@ class Game {
 		var my = 0.5*(h - this.background.height*scale)
 		this.context.drawImage (this.background, 0, 0, this.background.width, this.background.height, mx, my, this.background.width*scale, this.background.height*scale);
 
-		var font_size = Math.round (this.context.canvas.height/30)
-		canvas.style.font = this.context.font;
-		canvas.style.fontSize = `${font_size}px`;
-		this.context.font = canvas.style.font;
-		this.context.fillStyle = "grey";
-		this.context.textAlign = "center";
-		this.context.textBaseline = "middle"; 
+		if (demo) {
+			var font_size = Math.round (this.context.canvas.height/30)
+			canvas.style.font = this.context.font;
+			canvas.style.fontSize = `${font_size}px`;
+			this.context.font = canvas.style.font;
+			this.context.fillStyle = "grey";
+			this.context.textAlign = "center";
+			this.context.textBaseline = "middle"; 
 
-		var step_x = font_size * 5
-		var row = 0
-		for (let y = 0; y < this.context.canvas.height; y += font_size * 2) {
-			for (let x = 0; x < this.context.canvas.width + step_x; x += step_x) {
-				this.context.fillText ("D E M O", x + (row%2) * step_x *0.5, y);
+			var step_x = font_size * 5
+			var row = 0
+			for (let y = 0; y < this.context.canvas.height; y += font_size * 2) {
+				for (let x = 0; x < this.context.canvas.width + step_x; x += step_x) {
+					this.context.fillText ("D E M O", x + (row%2) * step_x *0.5, y);
+				}
+				row += 1
 			}
-			row += 1
 		}
 	}
 	

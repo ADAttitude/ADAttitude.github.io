@@ -73,6 +73,7 @@ class Penguin {
 
 		var w = this._board._cell_w / 1.4
 		var h = this._image.height * w * 1.0 / this._image.width
+
 		this._context.drawImage (this._image, 0, 0, this._image.width, this._image.height, x-w/2, y-h/2, w, h);
     }
 
