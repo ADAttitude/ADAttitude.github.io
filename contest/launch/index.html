@@ -420,12 +420,13 @@
 
         const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
-        demo = 0
-		if (urlParams.has ('demo')) demo = urlParams.get('demo')
-
+        
+        //var demo = 0
+		//if (urlParams.has ('demo')) demo = urlParams.get('demo')
         var soon = document.getElementById("modal_soon")
-        if (demo == 0) soon.style.display = "block";
-        else soon.style.display = "none"
+        //if (demo == 0) soon.style.display = "block";
+        //else soon.style.display = "none"
+        soon.style.display = "none"
 
         fill_leader_board ()
         fill_stats ()
