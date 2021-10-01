@@ -574,8 +574,10 @@
                     var div = document.getElementById('victories');
                     div.setAttribute ('data-digit', total_victories)                
 
+                    var ratio = 100*total_victories/total_games
+                    if (total_games == 0) ratio = 0
                     var div = document.getElementById('winning_ratio');
-                    div.setAttribute ('data-digit', (100*total_victories/total_games).toFixed (1) + "%")
+                    div.setAttribute ('data-digit', (ratio).toFixed (1) + "%")
 
                 });
         }
