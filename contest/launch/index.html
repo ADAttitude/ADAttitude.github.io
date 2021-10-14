@@ -12,7 +12,6 @@
     <link href="css/animate.min.css" rel="stylesheet"> 
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet"> 
-    <!--<link href="css/perfect-scrollbar.css" rel="stylesheet" type="text/css">   -->
     <link rel="shortcut icon" href="images/ico/favicon.ico"> 
 </head> 
 
@@ -63,7 +62,7 @@
                     <!--<h3 style="color:red;">The contest is now over. Congratulation to all the participants. If you missed it, don't worry, a new one will start soon.</h3>-->
 
                     <input type="text" class="form-control" 
-                                  placeholder="Stake or wallet address" id="key" disabled/>
+                                  placeholder="Stake or wallet address" id="key" />
             </div>
         </div>
         <div class="row">
@@ -435,6 +434,11 @@
         fill_stats ()
         var board_data=null
 
+        let player_key = getCookie("player_key");
+        if (player_key != "") {
+            document.getElementById('key').value = player_key
+        }
+
         window.onclick = function(event) {
             if (event.target == document.getElementById("modal_box")) {
                 close_modal_box (false)
@@ -473,6 +477,28 @@
         function close_modal_box (status){
             var modal = document.getElementById("modal_box");
             modal.style.display = "none";
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            let expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "," + expires// + ";path=/";
+        }
+
+        function getCookie(cname) {
+            let name = cname + "=";
+            let ca = document.cookie.split(',');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
         }
 
 		function fill_leader_board () {
@@ -667,6 +693,7 @@
 					    window.location.href = link;
                     }
 
+                    setCookie ("player_key", found_stake_key, 20);
                     show_modal_box (message, on_accept, "Let's play NOW!")
 				}
 
