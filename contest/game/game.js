@@ -14,7 +14,7 @@ class Game {
 	* @param {number}	seed		Seed for pseudo randomness
 	* @param {string}	player_id	Free reference to associate with a game
 	*/		
-	constructor (game_name, context, uri, agent_1, agent_2, seed=0, player_id=null, background=true) {
+	constructor (game_name, context, uri, agent_1, agent_2, seed=0, player_id=null, background=true, cardatm=true) {
 
 		window.requestAnimationFrame (this._game_loop);
 		this.start = Date.now()
@@ -44,7 +44,8 @@ class Game {
 		this.touch.current = null
 		this.touch.end = null
 		
-		this.cardatm = new Cardatm (context)
+		if (cardatm == true) this.cardatm = new Cardatm (context)
+		else this.cardatm = null
 
 		canvas.addEventListener("touchstart", (e) => {this._process_touch_start_event (e)})		
 		canvas.addEventListener("touchmove", (e) => {this._process_touch_move_event (e)})		
@@ -255,11 +256,11 @@ class Game {
 		else {				
 			if (this.is_busy () == false) this._forward_events ()
 			this.update (elapsed)
-			this.cardatm.update (elapsed)
+			if (this.cardatm != null) this.cardatm.update (elapsed)
 
 			this._draw_background (false)
 			this.draw ()
-			this.cardatm.draw ();
+			if (this.cardatm != null) this.cardatm.draw ();
 			
 			this._draw_full_screen_icon ()
 		}
@@ -460,7 +461,7 @@ class Game {
 				var player_actions = this._parse_player_actions (data.player_actions)
 
 				// Hide CardATM
-				this.cardatm.set_progress (0.0)
+				if (this.cardatm != null) this.cardatm.set_progress (0.0)
 				
 				this._turn_end (data.contest, game_state, player_actions)
 			}
@@ -484,7 +485,7 @@ class Game {
 
 			else if (type == "ThinkProgress") {
 
-				this.cardatm.set_progress (data.progress)
+				if (this.cardatm != null) this.cardatm.set_progress (data.progress)
 			}
 		}
 	}
