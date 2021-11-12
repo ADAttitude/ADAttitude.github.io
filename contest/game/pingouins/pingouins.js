@@ -110,10 +110,10 @@ class Pingouins extends Game {
 			var radius = this.board._cell_w / 2
 			var x = w/2 - this.board._cell_w * 4.4
 			var y = h/2 - this.board._cell_h * 4.4 * 0.75
-			this._draw_score (x, y, radius, this._scores ["Blue"], "rgba(255,0,0,0.6)")			
+			this._draw_score (x, y, radius, this._scores ["Blue"], "rgba(0,0,200,0.6)")			
 
 			var x = w/2 + this.board._cell_w * 4.4
-			this._draw_score (x, y, radius, this._scores ["Green"], "rgba(0,0,255,0.8)")			
+			this._draw_score (x, y, radius, this._scores ["Green"], "rgba(0,200,0,0.6)")			
 		}
 
 		// Draw winner banner
@@ -148,7 +148,7 @@ class Pingouins extends Game {
 		var y = h - font_size*2
 		this.context.fillText (message, x, y); 	
 
-		message = "You play the blue team."
+		message = "You play the green team."
 		y += font_size
 		this.context.fillText (message, x, y); 	
 	}

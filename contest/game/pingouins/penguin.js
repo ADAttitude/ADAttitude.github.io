@@ -16,11 +16,11 @@ class Penguin {
 
 		if (player_number == 0) {
 			Penguin.blue_counter += 1
-			this._image.src = `./assets/P${Penguin.blue_counter}_Red.png`
+			this._image.src = `./assets/P${Penguin.blue_counter}_Blue.png`
 		}
 		else if (player_number == 1) {
 			Penguin.green_counter += 1
-			this._image.src = `./assets/P${Penguin.green_counter}_Blue.png`
+			this._image.src = `./assets/P${Penguin.green_counter}_Green.png`
 		}
 	}
 	
@@ -71,7 +71,7 @@ class Penguin {
 			y = y + (yd-y) * this._move.t
 		}
 
-		var w = this._board._cell_w / 0.95
+		var w = this._board._cell_w / 1.4
 		var h = this._image.height * w * 1.0 / this._image.width
 
 		this._context.drawImage (this._image, 0, 0, this._image.width, this._image.height, x-w/2, y-h/2, w, h);
